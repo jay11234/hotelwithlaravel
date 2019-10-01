@@ -6,7 +6,7 @@
         <ul class="sidebar-menu">
 
              
-
+        
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>

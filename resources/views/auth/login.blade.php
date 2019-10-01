@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4 col-md-offset-4" >
             <div class="panel panel-default">
                 <div class="panel-heading">{{ ucfirst(config('app.name')) }} @lang('quickadmin.qa_login')</div>
                 <div class="panel-body">
@@ -16,7 +16,7 @@
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
-                        </div>
+                        </div>   
                     @endif
 
                     <form class="form-horizontal"

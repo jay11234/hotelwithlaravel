@@ -2,3 +2,8 @@
 #wrapper {
     position: relative;
 }
+
+#background{
+
+    background: url("/images/background.jpg");
+}
