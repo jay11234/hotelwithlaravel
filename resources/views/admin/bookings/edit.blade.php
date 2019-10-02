@@ -71,6 +71,21 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('parking', trans('quickadmin.bookings.fields.parking').'*', ['class' => 'control-label']) !!}
+                    {{ Form::radio('parking', 1) }} Yes
+                    {{ Form::radio('parking', 0) }} No
+                    <!-- {!! Form::radio('parking', old('parking'), ['class' => 'form-control ', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::radio('parking', old('parking'), ['class' => 'form-control ', 'placeholder' => '', 'required' => '']) !!} -->
+                    <p class="help-block"></p>
+                    @if($errors->has('parking'))
+                        <p class="help-block">
+                            {{ $errors->first('parking') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

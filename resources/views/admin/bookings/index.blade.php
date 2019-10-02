@@ -38,6 +38,7 @@
                         <th>@lang('quickadmin.bookings.fields.time-from')</th>
                         <th>@lang('quickadmin.bookings.fields.time-to')</th>
                         <th>@lang('quickadmin.bookings.fields.additional-information')</th>
+                        <th>@lang('quickadmin.bookings.fields.parking')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else

@@ -6,7 +6,11 @@
         <ul class="sidebar-menu">
 
              
-        
+            @if(auth::user()->role_id==2)
+            {
+                
+            }
+            @endif
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
