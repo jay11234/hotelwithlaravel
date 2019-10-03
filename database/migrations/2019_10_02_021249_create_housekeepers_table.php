@@ -15,6 +15,7 @@ class CreateHousekeepersTable extends Migration
     {
         Schema::create('housekeepers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -15,6 +15,11 @@ class CreateChecksheetsTable extends Migration
     {
         Schema::create('checksheets', function (Blueprint $table) {
             $table->increments('id');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->int('total_cycle');
+            $table->unsignedBigInteger('schedule_id')->nullable();
+            $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
