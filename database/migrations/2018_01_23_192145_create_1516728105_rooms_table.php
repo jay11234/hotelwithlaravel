@@ -12,9 +12,9 @@ class Create1516728105RoomsTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('rooms')) {
+      
             Schema::create('rooms', function (Blueprint $table) {
-                $table->increments('id');
+                $table->bigIncrements('id');
                 $table->string('room_number');
                 $table->integer('floor')->nullable();
                 $table->text('description')->nullable();
@@ -24,7 +24,7 @@ class Create1516728105RoomsTable extends Migration
 
                 $table->index(['deleted_at']);
             });
-        }
+         
     }
 
     /**

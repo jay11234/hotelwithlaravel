@@ -12,9 +12,9 @@ class Create1516728224BookingsTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('bookings')) {
+        
             Schema::create('bookings', function (Blueprint $table) {
-                $table->increments('id');
+                $table->bigIncrements('id');
                 $table->datetime('time_from')->nullable();
                 $table->datetime('time_to')->nullable();
                 $table->text('additional_information')->nullable();
@@ -24,7 +24,7 @@ class Create1516728224BookingsTable extends Migration
 
                 $table->index(['deleted_at']);
             });
-        }
+        
     }
 
     /**

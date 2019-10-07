@@ -38,10 +38,10 @@ class User extends Authenticatable
      * Set to null if empty
      * @param $input
      */
-    public function setRoleIdAttribute($input)
-    {
-        $this->attributes['role_id'] = $input ? $input : null;
-    }
+    // public function setRoleIdAttribute($input)
+    // {
+    //     $this->attributes['role_id'] = $input ? $input : null;
+    // }
     
     public function role()
     {

@@ -13,19 +13,17 @@ class CreateSchedulesTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('schedules'))
-        {
+        
             Schema::create('schedules', function (Blueprint $table) {
-                $table->increments('id');
+                $table->bigIncrements('id');
                 $table->unsignedBigInteger('room_id');
-                $table->foreign('room_id')->references('id')->on('rooms')->onDelete('CASCADE');
+                $table->foreign('room_id')->references('id')->on('rooms');
                 $table->unsignedBigInteger('housekeeper_id');
-                $table->foreign('housekeeper_id')->references('id')->on('housekeepers')->onDelete('SET NULL');
+                $table->foreign('housekeeper_id')->references('id')->on('housekeepers');
                 $table->enum('room_status',['vacantClean','vacantDirty','occupiedClean','occupiedService','onMaintenance']);
                 $table->timestamps();
             });
-
-        }
+ 
        
     }
 

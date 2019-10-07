@@ -12,18 +12,18 @@ class Create1516727692UsersTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('users')) {
-            Schema::create('users', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('name');
-                $table->string('email');
-                $table->string('password');
-                $table->string('remember_token')->nullable();
-                
-                $table->timestamps();
-                
-            });
-        }
+
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->string('remember_token')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles');
+ 
+            $table->timestamps();
+        });
     }
 
     /**

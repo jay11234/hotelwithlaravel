@@ -12,9 +12,9 @@ class Create1516727736CountriesTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('countries')) {
+        
             Schema::create('countries', function (Blueprint $table) {
-                $table->increments('id');
+                $table->bigIncrements('id');
                 $table->string('shortcode')->nullable();
                 $table->string('title')->nullable();
                 
@@ -23,7 +23,7 @@ class Create1516727736CountriesTable extends Migration
 
                 $table->index(['deleted_at']);
             });
-        }
+         
     }
 
     /**

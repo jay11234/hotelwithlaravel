@@ -12,21 +12,22 @@ class Create1516728020CustomersTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('customers')) {
+       
             Schema::create('customers', function (Blueprint $table) {
-                $table->increments('id');
+                $table->bigIncrements('id');
                 $table->string('first_name');
                 $table->string('last_name');
                 $table->string('address')->nullable();
                 $table->string('phone')->nullable();
                 $table->string('email');
-                
+                $table->unsignedBigInteger('country_id');
+                $table->foreign('country_id')->references('id')->on('countries');
                 $table->timestamps();
                 $table->softDeletes();
 
                 $table->index(['deleted_at']);
             });
-        }
+        
     }
 
     /**
