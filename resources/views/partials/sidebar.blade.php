@@ -6,12 +6,8 @@
         <ul class="sidebar-menu">
 
              
-            @if(auth::user()->role_id==2)
-            {
-                
-            }
-            @endif
-            <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
+            @if(auth::user()->role_id==1)
+            {  <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
                     <span class="title">@lang('quickadmin.qa_dashboard')</span>
@@ -108,7 +104,12 @@
             </li>
             @endcan
             
-
+            <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
+                <a href="{{ route('admin.agencies.index') }}">
+                    <i class="fa fa-arrows"></i>
+                    <span class="title">Agency</span>
+                </a>
+            </li>
             
 
             
@@ -128,6 +129,21 @@
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>
+                
+            }
+
+            @elseif(auth::user()->role_id==2)
+            {
+
+
+            }
+            @elseif(auth::user()->role_id==3)
+            {
+
+
+            }
+            @endif
+          
         </ul>
     </section>
 </aside>
