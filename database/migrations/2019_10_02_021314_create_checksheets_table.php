@@ -19,7 +19,12 @@ class CreateChecksheetsTable extends Migration
             $table->dateTime('end_time');
             $table->integer('total_cycle');
             $table->unsignedBigInteger('schedule_id')->nullable();
-            $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('CASCADE');
+
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->unsignedBigInteger('housekeeper_id');
+            $table->foreign('housekeeper_id')->references('id')->on('housekeepers');
+
             $table->timestamps();
         });
     }

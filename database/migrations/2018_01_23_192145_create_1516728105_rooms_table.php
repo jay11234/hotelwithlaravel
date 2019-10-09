@@ -18,7 +18,8 @@ class Create1516728105RoomsTable extends Migration
                 $table->string('room_number');
                 $table->integer('floor')->nullable();
                 $table->text('description')->nullable();
-                
+                $table->enum('room_status',['vacantClean','vacantDirty','occupiedClean','occupiedService','onMaintenance']);
+ 
                 $table->timestamps();
                 $table->softDeletes();
 
