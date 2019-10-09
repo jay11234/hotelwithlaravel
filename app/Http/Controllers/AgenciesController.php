@@ -24,7 +24,7 @@ class AgenciesController extends Controller
     {
         
  //['name','address','phone','details'];
-        $category = Agency::create([
+        $agency = Agency::create([
             'name'=> $request->name,
             'address'=>$request->address,
             'phone'=>$request->phone,

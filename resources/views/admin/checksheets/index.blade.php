@@ -8,7 +8,7 @@
         <a href="{{ route('admin.agencies.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
         
     </p>
-   <!-- ['name','address','phone','details']; -->
+  
 
     @can('country_delete')
     <p>

@@ -2,14 +2,13 @@
 
 @section('content')
     <h3 class="page-title">Agency</h3>
-    
-    {!! Form::model($agency, ['method' => 'PUT', 'route' => ['admin.agencies.update', $agency->id]]) !!}
+    {!! Form::open(['method' => 'POST', 'route' => ['admin.agencies.store']]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_edit')
+            @lang('quickadmin.qa_create')
         </div>
-
+        <!-- ['name','address','phone','details']; -->
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
@@ -23,7 +22,6 @@
                     @endif
                 </div>
             </div>
-            <!-- ['name','address','phone','details']; -->
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('address', trans('quickadmin.agencies.fields.address').'', ['class' => 'control-label']) !!}
@@ -64,7 +62,7 @@
         </div>
     </div>
 
-    {!! Form::submit(trans('quickadmin.qa_update'), ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
 
