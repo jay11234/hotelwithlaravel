@@ -12,11 +12,9 @@ class RoleSeed extends Seeder
     public function run()
     {
         $items = [
-            
             ['id' => 1, 'title' => 'manager',],
             ['id' => 2, 'title' => 'reception',],
             ['id' => 3, 'title' => 'housekeeper',]
-
         ];
 
         foreach ($items as $item) {

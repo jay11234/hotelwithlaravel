@@ -153,6 +153,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('category_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
-
     }
 }

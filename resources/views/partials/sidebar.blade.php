@@ -4,16 +4,12 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <ul class="sidebar-menu">
-
-             
-            @if(auth::user()->role_id==1)
-            {  <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
+            <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
                     <span class="title">@lang('quickadmin.qa_dashboard')</span>
                 </a>
             </li>
-
             
             @can('user_management_access')
             <li class="treeview">
@@ -129,21 +125,6 @@
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>
-                
-            }
-
-            @elseif(auth::user()->role_id==2)
-            {
-
-
-            }
-            @elseif(auth::user()->role_id==3)
-            {
-
-
-            }
-            @endif
-          
         </ul>
     </section>
 </aside>
