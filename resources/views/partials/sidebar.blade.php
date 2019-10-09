@@ -99,19 +99,16 @@
                 </a>
             </li>
             @endcan
-            
+
+            @can('housekeeping')
             <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
-                <a href="{{ route('admin.agencies.index') }}">
+                <a href="{{ route('admin.housekeepers.index') }}">
                     <i class="fa fa-arrows"></i>
-                    <span class="title">Agency</span>
+                    <span class="title">House keeping</span>
                 </a>
             </li>
+            @endcan
             
-
-            
-
-
-
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">
                     <i class="fa fa-key"></i>
