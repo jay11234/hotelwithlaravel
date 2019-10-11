@@ -12,7 +12,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('start_time', trans('quickadmin.checksheets.fields.start_time').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('start_time', trans('Start_Time').'', ['class' => 'control-label']) !!}
                     {!! Form::text('start_time', old('start_time'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('start_time'))
@@ -24,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('end_time', trans('quickadmin.checksheets.fields.end_time').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('end_time', trans('End_Time').'', ['class' => 'control-label']) !!}
                     {!! Form::text('end_time', old('end_time'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('end_time'))
@@ -36,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('total_cycle', trans('quickadmin.checksheets.fields.total_cycle').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('total_cycle', trans('Total_Cycle').'', ['class' => 'control-label']) !!}
                     {!! Form::text('total_cycle', old('total_cycle'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('total_cycle'))
@@ -48,8 +48,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('room_id', trans('quickadmin.checksheets.fields.room_id').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('room_id', old('room_id'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::label('room_id', trans('Room').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('room_id', $rooms, old('room_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('room_id'))
                         <p class="help-block">
@@ -60,8 +60,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('housekeeper_id', trans('quickadmin.checksheets.fields.housekeeper_id').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('housekeeper_id', old('housekeeper_id'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::label('housekeeper_id', trans('Housekeeper').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('housekeeper_id', $housekeepers, old('housekeeper_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('housekeeper_id'))
                         <p class="help-block">

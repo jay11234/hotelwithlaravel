@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\CheckSheet;
+use App\Room;
+use App\Housekeeper;
 class ChecksheetsController extends Controller
 {
+    // ['start_time', 'end_time', 'total_cycle', 'room_id','housekeeper_id'];
     
-    // ['start_time', 'end_time', 'total_cycle','room_id','housekeepr_id];
     public function index()
     {
         $checksheets=CheckSheet::all();
@@ -16,9 +18,11 @@ class ChecksheetsController extends Controller
 
     public function create()
     { 
-        $room = Room::get()->pluck('room_number','room_status','id')->prepend(trans('quickadmin.qa_please_select'),'');
-        $housekeeper = Housekeeper::get()->pluck('name','id')->prepend(trans('quckadmin.qa_please_select'),'');
-        return view('admin.checksheets.create', compact('room','housekeeper'));
+        
+        $rooms = Room::get()->pluck('room_number','room_status','id')->prepend(trans('quickadmin.qa_please_select'),'');
+        print_r($rooms);
+        $housekeepers = Housekeeper::get()->pluck('name','id')->prepend(trans('quckadmin.qa_please_select'),'');
+        return view('admin.checksheets.create', compact('rooms','housekeepers'));
  
     }
 
@@ -30,8 +34,8 @@ class ChecksheetsController extends Controller
     }
     public function show($id)
     {
-        $room = \App\Housekeeper::where('checksheet_id', $id)->get();
-        return view('admin.checksheets.show', compact('room'));
+       
+        return view('admin.checksheets.show' );
     }
     /**
      * Show the form for editing category.

@@ -17,7 +17,7 @@ class Room extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['room_number', 'floor', 'description','category_id','room_status','checksheet_id'];
+    protected $fillable = ['room_number', 'floor','room_type', 'description','category_id','room_status', ];
 
     /**
      * Set attribute to money format

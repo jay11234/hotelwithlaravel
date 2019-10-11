@@ -13,7 +13,7 @@ class CreateChecksheetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('checksheets', function (Blueprint $table) {
+        Schema::create('check_sheets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
