@@ -18,8 +18,7 @@ class CreateChecksheetsTable extends Migration
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->integer('total_cycle');
-            $table->unsignedBigInteger('schedule_id')->nullable();
-
+          
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->unsignedBigInteger('housekeeper_id');
