@@ -13,7 +13,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('name', trans('quickadmin.agencies.fields.name').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('name', trans('Name').'', ['class' => 'control-label']) !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('name'))
@@ -26,7 +26,7 @@
             <!-- ['name','address','phone','details']; -->
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('address', trans('quickadmin.agencies.fields.address').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('address', trans('Address').'', ['class' => 'control-label']) !!}
                     {!! Form::text('address', old('address'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('address'))
@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('phone', trans('quickadmin.agencies.fields.phone').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('phone', trans('Phone').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('phone'))
@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('details', trans('quickadmin.agencies.fields.details').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('details', trans('Details').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('details', old('details'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('details'))

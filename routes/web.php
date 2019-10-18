@@ -36,6 +36,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     
     Route::resource('countries', 'Admin\CountriesController');
     Route::resource('agencies', 'AgenciesController');
+    Route::post('agencies_mass_destroy', ['uses' => 'AgenciesController@massDestroy', 'as' => 'agencies.mass_destroy']);
+    Route::post('agencies_restore/{id}', ['uses' => 'AgenciesController@restore', 'as' => 'agencies.restore']);
+    Route::delete('agencies_perma_del/{id}', ['uses' => 'AgenciesController@perma_del', 'as' => 'agencies.perma_del']);
+
+
+
+
     Route::resource('companies', 'CompaniesController');
     Route::resource('checksheets', 'ChecksheetsController');
     Route::resource('housekeepers', 'HousekeepersController');

@@ -13,14 +13,21 @@ class AgenciesController extends Controller
         $agencies=Agency::all();
         return view('admin.agencies.index', compact('agencies'));
     }
+    public function show($id)
+    {
+ 
+        $agency = Agency::findOrFail($id);
 
+        return view('admin.rooms.show', compact('agency'));
+    }
     public function create()
     {
         //show template
         return view('admin.agencies.create');
     }
+    
 
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
         
  //['name','address','phone','details'];
@@ -55,7 +62,7 @@ class AgenciesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, $id)
+    public function update(Request $request, $id)
     {
          
         $agency = Agency::findOrFail($id);
@@ -110,10 +117,8 @@ class AgenciesController extends Controller
      */
     public function restore($id)
     {
-        if (!Gate::allows('agency_delete')) {
-            return abort(401);
-        }
-        $agency = Category::onlyTrashed()->findOrFail($id);
+      
+        $agency = Agency::onlyTrashed()->findOrFail($id);
         $agency->restore();
 
         return redirect()->route('admin.agencies.index');
