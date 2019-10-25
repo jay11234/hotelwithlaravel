@@ -12,19 +12,21 @@ class Create1516728224BookingsTable extends Migration
      */
     public function up()
     {
-        
-            Schema::create('bookings', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->datetime('time_from')->nullable();
-                $table->datetime('time_to')->nullable();
-                $table->text('additional_information')->nullable();
-                $table->boolean('parking');
-                $table->timestamps();
-                $table->softDeletes();
 
-                $table->index(['deleted_at']);
-            });
-        
+        Schema::create('bookings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->datetime('time_from')->nullable();
+            $table->datetime('time_to')->nullable();
+            $table->text('additional_information')->nullable();
+            $table->boolean('parking');
+            $table->timestamps();
+            $table->softDeletes(); 
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers'); 
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms'); 
+            $table->index(['deleted_at']);
+        });
     }
 
     /**

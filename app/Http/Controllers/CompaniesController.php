@@ -23,7 +23,7 @@ class CompaniesController extends Controller
         return view('admin.companies.create');
     }
 
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
         
   // ['start_time', 'end_time', 'total_cycle','schedule_id'];
@@ -58,7 +58,7 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, $id)
+    public function update(Request $request, $id)
     {
          
         $company = Company::findOrFail($id);

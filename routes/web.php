@@ -44,6 +44,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
 
     Route::resource('companies', 'CompaniesController');
+    Route::post('companies_mass_destroy', ['uses' => 'CompaniesController@massDestroy', 'as' => 'companies.mass_destroy']);
+    Route::post('companies_restore/{id}', ['uses' => 'CompaniesController@restore', 'as' => 'companies.restore']);
+    Route::delete('companies_perma_del/{id}', ['uses' => 'CompaniesController@perma_del', 'as' => 'companies.perma_del']);
+
+
+
+
+
     Route::resource('checksheets', 'ChecksheetsController');
     Route::resource('housekeepers', 'HousekeepersController');
     Route::resource('payments', 'PaymentsController');
