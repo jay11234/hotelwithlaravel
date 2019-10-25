@@ -5,7 +5,6 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
             @if(Auth::user()->role_id==1)
-            {
             <!-- which is manager -->
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
@@ -124,16 +123,14 @@
                 </a>
             </li>
 
+            
+            @endif
             <li>
                 <a href="#logout" onclick="$('#logout').submit();">
                     <i class="fa fa-arrow-left"></i>
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>
-            }
-
-            @endif
-
 
         </ul>
     </section>
