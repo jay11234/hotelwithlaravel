@@ -130,8 +130,8 @@
                 </a>
             </li>
 
-            
-            @endif
+
+     
             <li>
                 <a href="#logout" onclick="$('#logout').submit();">
                     <i class="fa fa-arrow-left"></i>
