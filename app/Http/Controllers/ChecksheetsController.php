@@ -17,17 +17,19 @@ class ChecksheetsController extends Controller
     }
 
     public function create()
-    { 
+    {  
         
-        $rooms = Room::get()->pluck('room_number','room_status','id')->prepend(trans('quickadmin.qa_please_select'),'');
-        print_r($rooms);
+        
+        $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+          
         $housekeepers = Housekeeper::get()->pluck('name','id')->prepend(trans('quickadmin.qa_please_select'),'');
         return view('admin.checksheets.create', compact('rooms','housekeepers'));
  
     }
 
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
+        
         $checksheet = CheckSheet::create($request->all());
         return redirect('/admin/checksheets');
  
@@ -58,7 +60,7 @@ class ChecksheetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, $id)
+    public function update(Request $request, $id)
     {
          
         $checksheet = CheckSheet::findOrFail($id);

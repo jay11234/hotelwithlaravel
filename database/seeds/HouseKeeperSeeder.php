@@ -13,14 +13,17 @@ class HouseKeeperSeeder extends Seeder
     {
         $items = [
             [
-              'id' => 1,
-              'first_name' => 'Sean',
-              'last_name' => 'Stanley',
-              'address' => '8116 Adams St',
-              'phone' => '0450492692',
-              'email' => 'Sean.Stanley@example.com',
-              'country_id' => 10,
+              'name' => 'Hung',
+       
             ],
+            [
+                'name' => 'Eden',
+         
+              ],
+              [
+                'name' => 'Jayden',
+         
+              ],
             
           ];
           foreach ($items as $item) {
