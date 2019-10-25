@@ -23,7 +23,7 @@ class UserSeed extends Seeder
           [
             'id' => 2,
             'name' => 'Reception',
-            'email' => 'reception@admin.com',
+            'email' => 'reception@reception.com',
             'password' => '$2y$10$akHCvTRpvma2eB8VOqUEoOtpWEelS2/e2TZK3LJyfLxuvw8MrQxVq',
             'role_id' => 2,
             'remember_token' => '',
@@ -31,7 +31,7 @@ class UserSeed extends Seeder
           [
             'id' => 3,
             'name' => 'HouseKeeper',
-            'email' => 'housekeeper@admin.com',
+            'email' => 'housekeeper@housekeeper.com',
             'password' => '$2y$10$akHCvTRpvma2eB8VOqUEoOtpWEelS2/e2TZK3LJyfLxuvw8MrQxVq',
             'role_id' => 3, 
             'remember_token' => '',
