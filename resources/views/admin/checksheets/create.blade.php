@@ -12,7 +12,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('start_time', trans('Start_Time').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('start_time', trans('Start Time').'', ['class' => 'control-label']) !!}
                     {!! Form::text('start_time', old('start_time'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('start_time'))
@@ -24,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('end_time', trans('End_Time').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('end_time', trans('End Time').'', ['class' => 'control-label']) !!}
                     {!! Form::text('end_time', old('end_time'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('end_time'))
@@ -36,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('total_cycle', trans('Total_Cycle').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('total_cycle', trans('Total Cycle').'', ['class' => 'control-label']) !!}
                     {!! Form::text('total_cycle', old('total_cycle'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('total_cycle'))

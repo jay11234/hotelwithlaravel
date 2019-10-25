@@ -21,7 +21,7 @@ class ChecksheetsController extends Controller
         
         $rooms = Room::get()->pluck('room_number','room_status','id')->prepend(trans('quickadmin.qa_please_select'),'');
         print_r($rooms);
-        $housekeepers = Housekeeper::get()->pluck('name','id')->prepend(trans('quckadmin.qa_please_select'),'');
+        $housekeepers = Housekeeper::get()->pluck('name','id')->prepend(trans('quickadmin.qa_please_select'),'');
         return view('admin.checksheets.create', compact('rooms','housekeepers'));
  
     }

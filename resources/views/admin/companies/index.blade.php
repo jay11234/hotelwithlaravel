@@ -2,10 +2,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h3 class="page-title">Agency</h3>
+<h3 class="page-title">Company</h3>
 
 <p>
-    <a href="{{ route('admin.agencies.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
+    <a href="{{ route('admin.companies.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
 
 </p>
 <!-- ['name','address','phone','details']; -->
@@ -13,8 +13,8 @@
  
 <p>
     <ul class="list-inline">
-        <li><a href="{{ route('admin.agencies.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-        <li><a href="{{ route('admin.agencies.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
+        <li><a href="{{ route('admin.companies.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
+        <li><a href="{{ route('admin.companies.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
     </ul>
 </p>
  
@@ -26,7 +26,7 @@
     </div>
 
     <div class="panel-body table-responsive">
-        <table class="table table-bordered table-striped {{ count($agencies) > 0 ? 'datatable' : '' }} @can('agency_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
+        <table class="table table-bordered table-striped {{ count($companies) > 0 ? 'datatable' : '' }} @can('agency_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
             <thead>
                 <tr>
 
@@ -45,17 +45,17 @@
             </thead>
 
             <tbody>
-                @if (count($agencies) > 0)
-                @foreach ($agencies as $agency)
-                <tr data-entry-id="{{ $agency->id }}">
+                @if (count($companies) > 0)
+                @foreach ($companies as $company)
+                <tr data-entry-id="{{ $company->id }}">
 
                     @if ( request('show_deleted') != 1 )<td></td>@endif
 
 
-                    <td field-key='name'>{{ $agency->name }}</td>
-                    <td field-key='address'>{{ $agency->address }}</td>
-                    <td field-key='phone'>{{ $agency->phone }}</td>
-                    <td field-key='details'>{{ $agency->details }}</td>
+                    <td field-key='name'>{{ $company->name }}</td>
+                    <td field-key='address'>{{ $company->address }}</td>
+                    <td field-key='phone'>{{ $company->phone }}</td>
+                    <td field-key='details'>{{ $company->details }}</td>
 
                     <td>
 
@@ -63,7 +63,7 @@
                         'style' => 'display: inline-block;',
                         'method' => 'POST',
                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                        'route' => ['admin.agencies.restore', $agency->id])) !!}
+                        'route' => ['admin.companies.restore', $company->id])) !!}
                         {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
                         {!! Form::close() !!}
 
@@ -71,7 +71,7 @@
                         'style' => 'display: inline-block;',
                         'method' => 'DELETE',
                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                        'route' => ['admin.agencies.perma_del', $agency->id])) !!}
+                        'route' => ['admin.companies.perma_del', $company->id])) !!}
                         {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
                         {!! Form::close() !!}
 
@@ -79,15 +79,15 @@
 
                     <td>
 
-                        <a href="{{ route('admin.agencies.show',[$agency->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                        <a href="{{ route('admin.companies.show',[$company->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
 
-                        <a href="{{ route('admin.agencies.edit',[$agency->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                        <a href="{{ route('admin.companies.edit',[$company->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
 
                         {!! Form::open(array(
                         'style' => 'display: inline-block;',
                         'method' => 'DELETE',
                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                        'route' => ['admin.agencies.destroy', $agency->id])) !!}
+                        'route' => ['admin.companies.destroy', $company->id])) !!}
                         {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                         {!! Form::close() !!}
 
@@ -110,7 +110,7 @@
 <script>
     @can('agency_delete')
     @if(request('show_deleted') != 1) window.route_mass_crud_entries_destroy = '{{ route('
-    admin.agencies.mass_destroy ') }}';
+    admin.companies.mass_destroy ') }}';
     @endif
     @endcan
 </script>

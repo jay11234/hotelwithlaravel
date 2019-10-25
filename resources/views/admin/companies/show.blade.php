@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.agencies.title')</h3>
+    <h3 class="page-title">@lang('quickadmin.companies.title')</h3>
  <!-- ['name','address','phone','details']; -->
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,19 +13,19 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.agencies.fields.name')</th>
+                            <th>@lang('quickadmin.companies.fields.name')</th>
                             <td field-key='name'>{{ $agency->name }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.agencies.fields.address')</th>
+                            <th>@lang('quickadmin.companies.fields.address')</th>
                             <td field-key='address'>{{ $agency->address }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.agencies.fields.phone')</th>
+                            <th>@lang('quickadmin.companies.fields.phone')</th>
                             <td field-key='phone'>{{ $agency->phone }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.agencies.fields.details')</th>
+                            <th>@lang('quickadmin.companies.fields.details')</th>
                             <td field-key='details'>{{ $agency->details }}</td>
                         </tr>
                     </table>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Housekeeper;
 use Illuminate\Http\Request;
 
-class HousekeeprsController extends Controller
+class HousekeepersController extends Controller
 {
     // $table->string('name');
     // $table->string('address')->nullable();

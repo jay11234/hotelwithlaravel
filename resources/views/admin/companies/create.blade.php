@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <!-- ['name','address','phone','details']; -->
 @section('content')
-    <h3 class="page-title">Agency</h3>
+    <h3 class="page-title">Company</h3>
     {!! Form::open(['method' => 'POST', 'route' => ['admin.companies.store']]) !!}
 
     <div class="panel panel-default">

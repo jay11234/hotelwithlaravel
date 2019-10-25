@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">Agency</h3>
+    <h3 class="page-title">Checksheets</h3>
     <!-- // ['start_time', 'end_time', 'total_cycle', 'room_id','housekeeper_id']; -->
     <p>
         <a href="{{ route('admin.checksheets.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
@@ -33,9 +33,9 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
     <!-- // ['start_time', 'end_time', 'total_cycle', 'room_id','housekeeper_id']; -->
-                        <th>START_TIME</th>
-                        <th>END_TIME</th>
-                        <th>TOTAL_CYCLE</th>
+                        <th>START TIME</th>
+                        <th>END TIME</th>
+                        <th>TOTAL CYCLE</th>
                         <th>ROOM</th>
                         <th>HOUSEKEEPER</th>
                         @if( request('show_deleted') == 1 )
@@ -54,24 +54,24 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='name'>{{ $checksheet->start_time }}</td>
-                                <td field-key='address'>{{ $checksheet->end_time }}</td>
-                                <td field-key='phone'>{{ $checksheet->total_cycle }}</td>
-                                <td field-key='details'>{{ $checksheet->room_id }}</td>
-                                <td field-key='details'>{{ $checksheet->housekeeper_id }}</td>
+                                <td field-key='start_time'>{{ $checksheet->start_time }}</td>
+                                <td field-key='end_time'>{{ $checksheet->end_time }}</td>
+                                <td field-key='total_cycle'>{{ $checksheet->total_cycle }}</td>
+                                <td field-key='room_id'>{{ $checksheet->room_id }}</td>
+                                <td field-key='housekeeper_id'>{{ $checksheet->housekeeper_id }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('checksheet_delete')
-                                                                        {!! Form::open(array(
+                                        {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'POST',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.checksheets.restore', $agency->id])) !!}
+                                        'route' => ['admin.checksheets.restore', $checksheet->id])) !!}
                                     {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
                                     {!! Form::close() !!}
                                 @endcan
                                     @can('checksheet_delete')
-                                                                        {!! Form::open(array(
+                                        {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
@@ -83,13 +83,13 @@
                                 @else
                                 <td>
                                     @can('checksheet_view')
-                                    <a href="{{ route('admin.agencies.show',[$country->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    <a href="{{ route('admin.checksheets.show',[$country->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
                                     @can('checksheet_edit')
-                                    <a href="{{ route('admin.agencies.edit',[$country->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('admin.checksheets.edit',[$country->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('checksheet_delete')
-{!! Form::open(array(
+                                        {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
@@ -114,8 +114,8 @@
 
 @section('javascript') 
     <script>
-        @can('agency_delete')
-            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.agencies.mass_destroy') }}'; @endif
+        @can('checksheet_delete')
+            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.checksheets.mass_destroy') }}'; @endif
         @endcan
 
     </script>
