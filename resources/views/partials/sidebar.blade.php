@@ -6,14 +6,12 @@
         <ul class="sidebar-menu">
             @if(Auth::user()->role_id==1)
             <!-- which is manager -->
-            <li class="treeview">
+            <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
                     <span class="title">@lang('quickadmin.qa_dashboard')</span>
                 </a>
             </li>
-
-
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -23,8 +21,6 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-
-
                     <li class="{{ $request->segment(2) == 'roles' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.roles.index') }}">
                             <i class="fa fa-briefcase"></i>
@@ -42,7 +38,6 @@
                             </span>
                         </a>
                     </li>
-
                 </ul>
             </li>
 
@@ -106,8 +101,6 @@
                     <span class="title">@lang('quickadmin.find-room.title')</span>
                 </a>
             </li>
-
-
             <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
                 <a href="{{ route('admin.housekeepers.index') }}">
                     <i class="fa fa-arrows"></i>
@@ -120,32 +113,8 @@
                     <span class="title">CheckSheet</span>
                 </a>
             </li>
-
-
-
-            <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
-                <a href="{{ route('auth.change_password') }}">
-                    <i class="fa fa-key"></i>
-                    <span class="title">@lang('quickadmin.qa_change_password')</span>
-                </a>
-            </li>
-
-
-     
-            <li>
-                <a href="#logout" onclick="$('#logout').submit();">
-                    <i class="fa fa-arrow-left"></i>
-                    <span class="title">@lang('quickadmin.qa_logout')</span>
-                </a>
-            </li>
-
-
-
             @elseif(Auth::user()->role_id==2)
-
             <!-- reception -->
-
-
             <li class="treeview">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
@@ -165,8 +134,6 @@
                     <span class="title">CheckSheet</span>
                 </a>
             </li>
-
-
             <li>
                 <a href="#">
                     <i class="fa fa-wrench"></i>
@@ -175,21 +142,8 @@
                     </span>
                 </a>
             </li>
-
-            <li>
-                <a href="#logout" onclick="$('#logout').submit();">
-                    <i class="fa fa-arrow-left"></i>
-                    <span class="title">@lang('quickadmin.qa_logout')</span>
-                </a>
-            </li>
-
-
-
             @elseif(Auth::user()->role_id==3)
-
-
             <!-- housekeeper -->
-
             <li class="treeview">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
@@ -203,32 +157,26 @@
                     <span class="title">CheckSheet</span>
                 </a>
             </li>
-
-
-
-
-
-
             <li class="{{ $request->segment(2) == 'rooms' ? 'active' : '' }}">
                 <a href="{{ route('admin.rooms.index') }}">
                     <i class="fa fa-gears"></i>
                     <span class="title">@lang('quickadmin.rooms.title')</span>
                 </a>
             </li>
-
-
-
+            @endif
+            <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
+                <a href="{{ route('auth.change_password') }}">
+                    <i class="fa fa-key"></i>
+                    <span class="title">@lang('quickadmin.qa_change_password')</span>
+                </a>
+            </li>
             <li>
                 <a href="#logout" onclick="$('#logout').submit();">
                     <i class="fa fa-arrow-left"></i>
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>
-
-
-            @endif
-
-
+            
         </ul>
     </section>
 </aside>
