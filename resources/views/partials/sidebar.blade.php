@@ -97,7 +97,7 @@
 
             <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
                 <a href="{{ route('admin.find_rooms.index') }}">
-                    <i class="fa fa-arrows"></i>
+                    <i class="fa fa-search"></i>
                     <span class="title">@lang('quickadmin.find-room.title')</span>
                 </a>
             </li>
@@ -111,6 +111,12 @@
                 <a href="{{ route('admin.checksheets.index') }}">
                     <i class="fa fa-calendar-o"></i>
                     <span class="title">CheckSheet</span>
+                </a>
+            </li>
+            <li class="{{ $request->segment(2) == 'payments' ? 'active' : '' }}">
+                <a href="{{ route('admin.payments.index') }}">
+                    <i class="fa fa-credit-card"></i>
+                    <span class="title">Payment History</span>
                 </a>
             </li>
             @elseif(Auth::user()->role_id==2)
