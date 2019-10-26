@@ -13,7 +13,7 @@ class HousekeepersController extends Controller
     // $table->text('details')->nullable();
     public function index()
     {
-        $housekeepers=Housekeeper::all();
+        $housekeepers = Housekeeper::all();
         return view('admin.housekeepers.index', compact('housekeepers'));
     }
 
@@ -23,16 +23,15 @@ class HousekeepersController extends Controller
         return view('admin.housekeepers.create');
     }
 
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
-        
-  // ['start_time', 'end_time', 'total_cycle','schedule_id'];
+
+        // ['start_time', 'end_time', 'total_cycle','schedule_id'];
         $housekeeper = Housekeeper::create([
-            'name'=> $request->name,
-           
+            'name' => $request->name,
+
         ]);
         return redirect('/admin/housekeepers');
-
     }
 
     /**
@@ -43,7 +42,7 @@ class HousekeepersController extends Controller
      */
     public function edit($id)
     {
-        
+
         $housekeeper = Housekeeper::findOrFail($id);
 
         return view('admin.housekeepers.edit', compact('housekeeper'));
@@ -56,9 +55,9 @@ class HousekeepersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, $id)
+    public function update(Request $request, $id)
     {
-         
+
         $housekeeper = Housekeeper::findOrFail($id);
         $housekeeper->update($request->all());
         return redirect()->route('admin.housekeepers.index');
@@ -73,13 +72,13 @@ class HousekeepersController extends Controller
      */
     public function destroy($id)
     {
-         
+
         $housekeeper = Housekeeper::findOrFail($id);
-        $housekeeper->delete(); 
+        $housekeeper->delete();
 
         return redirect()->route('admin.housekeepers.index');
     }
-    
+
     /**
      * Delete all selected Category at once.
      *
@@ -133,5 +132,4 @@ class HousekeepersController extends Controller
 
         return redirect()->route('admin.housekeepers.index');
     }
-    
 }

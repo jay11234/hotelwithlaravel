@@ -18,7 +18,7 @@ class Create1516728224BookingsTable extends Migration
             $table->datetime('time_from')->nullable();
             $table->datetime('time_to')->nullable();
             $table->text('additional_information')->nullable();
-            $table->boolean('parking');
+            $table->boolean('parking')->default(0);
             $table->timestamps();
             $table->softDeletes(); 
             $table->unsignedBigInteger('customer_id');
