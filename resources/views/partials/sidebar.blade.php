@@ -101,13 +101,69 @@
                     <span class="title">@lang('quickadmin.find-room.title')</span>
                 </a>
             </li>
-            @endif
             <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
                 <a href="{{ route('admin.housekeepers.index') }}">
                     <i class="fa fa-arrows"></i>
                     <span class="title">House keeping</span>
                 </a>
             </li>
+            <li class="{{ $request->segment(2) == 'checksheets' ? 'active' : '' }}">
+                <a href="{{ route('admin.checksheets.index') }}">
+                    <i class="fa fa-calendar-o"></i>
+                    <span class="title">CheckSheet</span>
+                </a>
+            </li>
+            @elseif(Auth::user()->role_id==2)
+            <!-- reception -->
+            <li class="treeview">
+                <a href="{{ url('/') }}">
+                    <i class="fa fa-wrench"></i>
+                    <span class="title">@lang('quickadmin.qa_dashboard')</span>
+                </a>
+            </li>
+
+            <li class="{{ $request->segment(2) == 'bookings' ? 'active' : '' }}">
+                <a href="{{ route('admin.bookings.index') }}">
+                    <i class="fa fa-bell"></i>
+                    <span class="title">@lang('quickadmin.bookings.title')</span>
+                </a>
+            </li>
+            <li class="{{ $request->segment(2) == 'checksheets' ? 'active' : '' }}">
+                <a href="{{ route('admin.checksheets.index') }}">
+                    <i class="fa fa-calendar-o"></i>
+                    <span class="title">CheckSheet</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-wrench"></i>
+                    <span class="title">
+                        Maintenance
+                    </span>
+                </a>
+            </li>
+            @elseif(Auth::user()->role_id==3)
+            <!-- housekeeper -->
+            <li class="treeview">
+                <a href="{{ url('/') }}">
+                    <i class="fa fa-wrench"></i>
+                    <span class="title">@lang('quickadmin.qa_dashboard')</span>
+                </a>
+            </li>
+
+            <li class="{{ $request->segment(2) == 'checksheets' ? 'active' : '' }}">
+                <a href="{{ route('admin.checksheets.index') }}">
+                    <i class="fa fa-calendar-o"></i>
+                    <span class="title">CheckSheet</span>
+                </a>
+            </li>
+            <li class="{{ $request->segment(2) == 'rooms' ? 'active' : '' }}">
+                <a href="{{ route('admin.rooms.index') }}">
+                    <i class="fa fa-gears"></i>
+                    <span class="title">@lang('quickadmin.rooms.title')</span>
+                </a>
+            </li>
+            @endif
             <li class="{{ $request->segment(1) == 'change_password' ? 'active' : '' }}">
                 <a href="{{ route('auth.change_password') }}">
                     <i class="fa fa-key"></i>
@@ -120,7 +176,7 @@
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>
-
+            
         </ul>
     </section>
 </aside>

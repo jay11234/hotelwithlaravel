@@ -53,6 +53,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
 
     Route::resource('checksheets', 'ChecksheetsController');
+    Route::post('checksheets_mass_destroy', ['uses' => 'ChecksheetsController@massDestroy', 'as' => 'checksheets.mass_destroy']);
+    Route::post('checksheets_restore/{id}', ['uses' => 'ChecksheetsController@restore', 'as' => 'checksheets.restore']);
+    Route::delete('checksheets_perma_del/{id}', ['uses' => 'ChecksheetsController@perma_del', 'as' => 'checksheets.perma_del']);
+
+
+
     Route::resource('housekeepers', 'HousekeepersController');
     Route::resource('payments', 'PaymentsController');
     Route::post('countries_mass_destroy', ['uses' => 'Admin\CountriesController@massDestroy', 'as' => 'countries.mass_destroy']);

@@ -15,8 +15,8 @@ class CreateChecksheetsTable extends Migration
     {
         Schema::create('check_sheets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->datetime('start_time');
+            $table->datetime('end_time');
             $table->integer('total_cycle');
           
             $table->unsignedBigInteger('room_id');
