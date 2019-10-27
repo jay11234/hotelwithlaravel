@@ -39,6 +39,7 @@
                         <th>@lang('quickadmin.bookings.fields.time-to')</th>
                         <th>@lang('quickadmin.bookings.fields.additional-information')</th>
                         <th>@lang('quickadmin.bookings.fields.parking')</th>
+                        <th>Status</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -60,6 +61,9 @@
                                 <td field-key='time_from'>{{ $booking->time_from }}</td>
                                 <td field-key='time_to'>{{ $booking->time_to }}</td>
                                 <td field-key='additional_information'>{!! $booking->additional_information !!}</td>
+                                <td field-key='parking'>{{ $booking->parking }}</td>
+                                <td field-key='status'>
+                                    {{ $booking->status }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('booking_delete')
@@ -72,7 +76,7 @@
                                     {!! Form::close() !!}
                                 @endcan
                                     @can('booking_delete')
-                                                                        {!! Form::open(array(
+                                                                        {!! Form::opppen(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",

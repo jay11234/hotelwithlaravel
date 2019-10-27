@@ -85,6 +85,19 @@
                 @endif
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-xs-12 form-group">
+                <!-- CreditCard','Cash','Debit','Voucher','EFTPOS' -->
+                <label name="status" for="status">Status*</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="1">None</option>
+                    <option value="2">CheckedIn</option>
+                    <option value="3">CheckedOut</option>
+                
+                </select>
+            </div>
+        </div>
 
     </div>
 </div>
