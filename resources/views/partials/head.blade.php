@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>
-    @lang('quickadmin.quickadmin_title')
+   SIT HOTEL
 </title>
 
 <meta http-equiv="X-UA-Compatible"

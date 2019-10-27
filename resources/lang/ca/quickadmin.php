@@ -307,5 +307,5 @@ return [
 	'qa_parse_csv' => 'Analitza CSV',
 	'qa_import_data' => 'Importar dades',
 	'qa_imported_rows_to_table' => 'Importades :row files a la taula :taula',
-	'quickadmin_title' => 'hotel-booking',
+	'quickadmin_title' => 'SIT HOTEL',
 ];

@@ -1,14 +1,77 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'countries' => [		'title' => 'Countries',		'fields' => [			'shortcode' => 'Shortcode',			'title' => 'Title',			'name' => 'Name',		],	],
-		'customers' => [		'title' => 'Customers',		'fields' => [			'first-name' => 'First name',			'last-name' => 'Last name',			'address' => 'Address',			'phone' => 'Phone',			'email' => 'Email',			'country' => 'Country',		],	],
-		'rooms' => [		'title' => 'Rooms',		'fields' => [			'room-number' => 'Room number',			'floor' => 'Floor',			'description' => 'Description',		],	],
-		'bookings' => [		'title' => 'Bookings',		'fields' => [			'customer' => 'Customer',			'room' => 'Room',			'time-from' => 'Time from',			'time-to' => 'Time to',			'additional-information' => 'Additional information',		],	],
-		'find-room' => [		'title' => 'Find room',		'fields' => [		],	],
+	
+	'user-management' => [
+		'title' => 'User management',
+		'fields' => [
+		],
+	],
+	
+	'roles' => [
+		'title' => 'Roles',
+		'fields' => [
+			'title' => 'Title',
+		],
+	],
+	
+	'users' => [
+		'title' => 'Users',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'password' => 'Password',
+			'role' => 'Role',
+			'remember-token' => 'Remember token',
+		],
+	],
+	
+	'countries' => [
+		'title' => 'Countries',
+		'fields' => [
+			'shortcode' => 'Shortcode',
+			'title' => 'Title',
+			'name' => 'Name',
+		],
+	],
+	
+	'customers' => [
+		'title' => 'Customers',
+		'fields' => [
+			'first-name' => 'First name',
+			'last-name' => 'Last name',
+			'address' => 'Address',
+			'phone' => 'Phone',
+			'email' => 'Email',
+			'country' => 'Country',
+		],
+	],
+	
+	'rooms' => [
+		'title' => 'Rooms',
+		'fields' => [
+			'room-number' => 'Room number',
+			'floor' => 'Floor',
+			'description' => 'Description',
+		],
+	],
+	
+	'bookings' => [
+		'title' => 'Bookings',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+		],
+	],
+	
+	'find-room' => [
+		'title' => 'Find room',
+		'fields' => [
+		],
+	],
 	'qa_create' => 'Crear',
 	'qa_save' => 'Guardar',
 	'qa_edit' => 'Editar',
@@ -180,7 +243,7 @@ return [
 	'qa_excerpt' => 'Extracto',
 	'qa_featured_image' => 'Imagen Destacada',
 	'qa_pages' => 'Paginas',
-	'qa_axis' => 'Eje',
+	'qa_axis' => 'Eje',SIT HOTEL
 	'qa_reports_x_axis_field' => 'eje-x por favor escoja uno de los campos de fecha/hora',
 	'qa_reports_y_axis_field' => 'eje-y por favor escoja uno de los campos numéricos',
 	'qa_select_crud_placeholder' => 'Por favor seleccione uno de sus CRUDs',

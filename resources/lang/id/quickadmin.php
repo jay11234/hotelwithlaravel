@@ -243,5 +243,5 @@ return [
 	'qa_email_greet' => 'Hai',
 	'qa_confirm_password' => 'konfirmasi kata kunci',
 	'qa_please_select' => 'Silahkan pilih',
-	'quickadmin_title' => 'hotel-booking',
+	'quickadmin_title' => 'SIT HOTEL',
 ];

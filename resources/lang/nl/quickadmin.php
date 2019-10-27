@@ -301,5 +301,5 @@ return [
 	'qa_stripe_transactions' => 'Stripe transacties',
 	'qa_reset_password' => 'Wachtwoord reset',
 	'qa_confirm_password' => 'Bevestig wachtwoord',
-	'quickadmin_title' => 'hotel-booking',
+	'quickadmin_title' => 'SIT HOTEL',
 ];

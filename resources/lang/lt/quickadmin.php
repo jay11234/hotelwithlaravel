@@ -1,14 +1,77 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'countries' => [		'title' => 'Countries',		'fields' => [			'shortcode' => 'Shortcode',			'title' => 'Title',			'name' => 'Name',		],	],
-		'customers' => [		'title' => 'Customers',		'fields' => [			'first-name' => 'First name',			'last-name' => 'Last name',			'address' => 'Address',			'phone' => 'Phone',			'email' => 'Email',			'country' => 'Country',		],	],
-		'rooms' => [		'title' => 'Rooms',		'fields' => [			'room-number' => 'Room number',			'floor' => 'Floor',			'description' => 'Description',		],	],
-		'bookings' => [		'title' => 'Bookings',		'fields' => [			'customer' => 'Customer',			'room' => 'Room',			'time-from' => 'Time from',			'time-to' => 'Time to',			'additional-information' => 'Additional information',		],	],
-		'find-room' => [		'title' => 'Find room',		'fields' => [		],	],
+	
+	'user-management' => [
+		'title' => 'User management',
+		'fields' => [
+		],
+	],
+	
+	'roles' => [
+		'title' => 'Roles',
+		'fields' => [
+			'title' => 'Title',
+		],
+	],
+	
+	'users' => [
+		'title' => 'Users',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'password' => 'Password',
+			'role' => 'Role',
+			'remember-token' => 'Remember token',
+		],
+	],
+	
+	'countries' => [
+		'title' => 'Countries',
+		'fields' => [
+			'shortcode' => 'Shortcode',
+			'title' => 'Title',
+			'name' => 'Name',
+		],
+	],
+	
+	'customers' => [
+		'title' => 'Customers',
+		'fields' => [
+			'first-name' => 'First name',
+			'last-name' => 'Last name',
+			'address' => 'Address',
+			'phone' => 'Phone',
+			'email' => 'Email',
+			'country' => 'Country',
+		],
+	],
+	
+	'rooms' => [
+		'title' => 'Rooms',
+		'fields' => [
+			'room-number' => 'Room number',
+			'floor' => 'Floor',
+			'description' => 'Description',
+		],
+	],
+	
+	'bookings' => [
+		'title' => 'Bookings',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+		],
+	],
+	
+	'find-room' => [
+		'title' => 'Find room',
+		'fields' => [
+		],
+	],
 	'qa_save' => 'Išsaugoti',
 	'qa_update' => 'Atnaujinti',
 	'qa_list' => 'Sąrašas',
@@ -50,7 +113,7 @@ return [
 	'qa_password' => 'Slaptažodis',
 	'qa_user_actions' => 'Vartotojų veiksmai',
 	'qa_campaign' => 'Kampanija',
-	'qa_campaigns' => 'Kampanijos',
+	'qa_campaigns' => 'KampSIT HOTEL
 	'qa_description' => 'Aprašymas',
 	'qa_valid_from' => 'Galioja nuo',
 	'qa_valid_to' => 'Galioja iki',

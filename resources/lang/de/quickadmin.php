@@ -1,14 +1,77 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'countries' => [		'title' => 'Countries',		'fields' => [			'shortcode' => 'Shortcode',			'title' => 'Title',			'name' => 'Name',		],	],
-		'customers' => [		'title' => 'Customers',		'fields' => [			'first-name' => 'First name',			'last-name' => 'Last name',			'address' => 'Address',			'phone' => 'Phone',			'email' => 'Email',			'country' => 'Country',		],	],
-		'rooms' => [		'title' => 'Rooms',		'fields' => [			'room-number' => 'Room number',			'floor' => 'Floor',			'description' => 'Description',		],	],
-		'bookings' => [		'title' => 'Bookings',		'fields' => [			'customer' => 'Customer',			'room' => 'Room',			'time-from' => 'Time from',			'time-to' => 'Time to',			'additional-information' => 'Additional information',		],	],
-		'find-room' => [		'title' => 'Find room',		'fields' => [		],	],
+	
+	'user-management' => [
+		'title' => 'User management',
+		'fields' => [
+		],
+	],
+	
+	'roles' => [
+		'title' => 'Roles',
+		'fields' => [
+			'title' => 'Title',
+		],
+	],
+	
+	'users' => [
+		'title' => 'Users',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'password' => 'Password',
+			'role' => 'Role',
+			'remember-token' => 'Remember token',
+		],
+	],
+	
+	'countries' => [
+		'title' => 'Countries',
+		'fields' => [
+			'shortcode' => 'Shortcode',
+			'title' => 'Title',
+			'name' => 'Name',
+		],
+	],
+	
+	'customers' => [
+		'title' => 'Customers',
+		'fields' => [
+			'first-name' => 'First name',
+			'last-name' => 'Last name',
+			'address' => 'Address',
+			'phone' => 'Phone',
+			'email' => 'Email',
+			'country' => 'Country',
+		],
+	],
+	
+	'rooms' => [
+		'title' => 'Rooms',
+		'fields' => [
+			'room-number' => 'Room number',
+			'floor' => 'Floor',
+			'description' => 'Description',
+		],
+	],
+	
+	'bookings' => [
+		'title' => 'Bookings',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+		],
+	],
+	
+	'find-room' => [
+		'title' => 'Find room',
+		'fields' => [
+		],
+	],
 	'qa_create' => 'Erstellen',
 	'qa_save' => 'Speichern',
 	'qa_edit' => 'Bearbeiten',
@@ -181,7 +244,7 @@ return [
 	'qa_label_field' => 'Beschreibungsfeld',
 	'qa_suffix' => 'Suffix',
 	'qa_no_calendar_sources' => 'Keine Kalenderquellen',
-	'qa_crud_event_field' => 'Ereignis-Beschreibungsfeld',
+	'qa_crud_event_field' =SIT HOTELeschreibungsfeld',
 	'qa_create_new_calendar_source' => 'Erstelle neue Kalenderquelle',
 	'qa_edit_calendar_source' => 'Kalenderquelle bearbeiten',
 	'qa_client_management' => 'Kundenverwaltung',

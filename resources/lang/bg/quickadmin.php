@@ -87,5 +87,5 @@ return [
 	'qa_back_to_list' => 'Обратно към списъка',
 	'qa_dashboard' => 'Табло',
 	'qa_delete' => 'Изтрий',
-	'quickadmin_title' => 'hotel-booking',
+	'quickadmin_title' => 'SIT HOTEL',
 ];

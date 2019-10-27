@@ -1,14 +1,77 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'countries' => [		'title' => 'Countries',		'fields' => [			'shortcode' => 'Shortcode',			'title' => 'Title',			'name' => 'Name',		],	],
-		'customers' => [		'title' => 'Customers',		'fields' => [			'first-name' => 'First name',			'last-name' => 'Last name',			'address' => 'Address',			'phone' => 'Phone',			'email' => 'Email',			'country' => 'Country',		],	],
-		'rooms' => [		'title' => 'Rooms',		'fields' => [			'room-number' => 'Room number',			'floor' => 'Floor',			'description' => 'Description',		],	],
-		'bookings' => [		'title' => 'Bookings',		'fields' => [			'customer' => 'Customer',			'room' => 'Room',			'time-from' => 'Time from',			'time-to' => 'Time to',			'additional-information' => 'Additional information',		],	],
-		'find-room' => [		'title' => 'Find room',		'fields' => [		],	],
+	
+	'user-management' => [
+		'title' => 'User management',
+		'fields' => [
+		],
+	],
+	
+	'roles' => [
+		'title' => 'Roles',
+		'fields' => [
+			'title' => 'Title',
+		],
+	],
+	
+	'users' => [
+		'title' => 'Users',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'password' => 'Password',
+			'role' => 'Role',
+			'remember-token' => 'Remember token',
+		],
+	],
+	
+	'countries' => [
+		'title' => 'Countries',
+		'fields' => [
+			'shortcode' => 'Shortcode',
+			'title' => 'Title',
+			'name' => 'Name',
+		],
+	],
+	
+	'customers' => [
+		'title' => 'Customers',
+		'fields' => [
+			'first-name' => 'First name',
+			'last-name' => 'Last name',
+			'address' => 'Address',
+			'phone' => 'Phone',
+			'email' => 'Email',
+			'country' => 'Country',
+		],
+	],
+	
+	'rooms' => [
+		'title' => 'Rooms',
+		'fields' => [
+			'room-number' => 'Room number',
+			'floor' => 'Floor',
+			'description' => 'Description',
+		],
+	],
+	
+	'bookings' => [
+		'title' => 'Bookings',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+		],
+	],
+	
+	'find-room' => [
+		'title' => 'Find room',
+		'fields' => [
+		],
+	],
 	'qa_create' => 'Létrehozás',
 	'qa_save' => 'Mentés',
 	'qa_edit' => 'Szerkesztés',
@@ -181,7 +244,7 @@ return [
 	'qa_aggregate_function_use' => 'Összegző funkció használata',
 	'qa_x_axis_group_by' => 'X tengely csoportosítás',
 	'qa_x_axis_field' => 'X tengely mező (dátum/idő)',
-	'qa_y_axis_field' => 'Y tengely mező',
+	'qa_y_axis_field' => 'YSIT HOTEL',
 	'qa_is_created' => 'létrehozva',
 	'qa_is_updated' => 'frissítve',
 	'qa_is_deleted' => 'törölve',
