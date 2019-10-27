@@ -22,6 +22,14 @@ class HousekeepersController extends Controller
         //show template
         return view('admin.housekeepers.create');
     }
+    public function show($id)
+    {
+      
+        $housekeeper = Housekeeper::findOrFail($id);
+
+        return view('admin.housekeepers.show', compact('housekeeper'));
+    }
+
 
     public function store(Request $request)
     {

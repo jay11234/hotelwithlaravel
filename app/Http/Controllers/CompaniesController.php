@@ -6,14 +6,14 @@ use App\Company;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
-{  
+{
     // $table->string('name');
     // $table->string('address')->nullable();
     // $table->string('phone')->nullable();
     // $table->text('details')->nullable();
     public function index()
     {
-        $companies=Company::all();
+        $companies = Company::all();
         return view('admin.companies.index', compact('companies'));
     }
 
@@ -25,16 +25,22 @@ class CompaniesController extends Controller
 
     public function store(Request $request)
     {
-        
-  // ['start_time', 'end_time', 'total_cycle','schedule_id'];
+
+        // ['start_time', 'end_time', 'total_cycle','schedule_id'];
         $company = Company::create([
-            'name'=> $request->name,
-            'address'=>$request->address,
-            'phone'=>$request->phone,
-            'details'=>$request->details,
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'details' => $request->details,
         ]);
         return redirect('/admin/companies');
+    }
+    public function show($id)
+    {
 
+        $company = Company::findOrFail($id);
+
+        return view('admin.companies.show', compact('company'));
     }
 
     /**
@@ -45,7 +51,7 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        
+
         $company = Company::findOrFail($id);
 
         return view('admin.companies.edit', compact('company'));
@@ -60,7 +66,7 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-         
+
         $company = Company::findOrFail($id);
         $company->update($request->all());
         return redirect()->route('admin.companies.index');
@@ -75,13 +81,13 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-         
+
         $company = Company::findOrFail($id);
-        $company->delete(); 
+        $company->delete();
 
         return redirect()->route('admin.companies.index');
     }
-    
+
     /**
      * Delete all selected Category at once.
      *
@@ -135,6 +141,4 @@ class CompaniesController extends Controller
 
         return redirect()->route('admin.companies.index');
     }
-    
-
 }

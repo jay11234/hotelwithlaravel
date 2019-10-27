@@ -10,35 +10,34 @@ class AgenciesController extends Controller
     //['name','address','phone','details'];
     public function index()
     {
-        $agencies=Agency::all();
+        $agencies = Agency::all();
         return view('admin.agencies.index', compact('agencies'));
     }
     public function show($id)
     {
- 
+
         $agency = Agency::findOrFail($id);
 
-        return view('admin.rooms.show', compact('agency'));
+        return view('admin.agencies.show', compact('agency'));
     }
     public function create()
     {
         //show template
         return view('admin.agencies.create');
     }
-    
+
 
     public function store(Request $request)
     {
-        
- //['name','address','phone','details'];
+
+        //['name','address','phone','details'];
         $agency = Agency::create([
-            'name'=> $request->name,
-            'address'=>$request->address,
-            'phone'=>$request->phone,
-            'details'=>$request->details,
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'details' => $request->details,
         ]);
         return redirect('/admin/agencies');
-
     }
 
     /**
@@ -49,7 +48,7 @@ class AgenciesController extends Controller
      */
     public function edit($id)
     {
-        
+
         $agency = Agency::findOrFail($id);
 
         return view('admin.agencies.edit', compact('agency'));
@@ -64,7 +63,7 @@ class AgenciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-         
+
         $agency = Agency::findOrFail($id);
         $agency->update($request->all());
 
@@ -82,13 +81,13 @@ class AgenciesController extends Controller
      */
     public function destroy($id)
     {
-         
+
         $agency = Agency::findOrFail($id);
         $agency->delete();
 
         return redirect()->route('admin.agencies.index');
     }
-    
+
     /**
      * Delete all selected Category at once.
      *
@@ -117,7 +116,7 @@ class AgenciesController extends Controller
      */
     public function restore($id)
     {
-      
+
         $agency = Agency::onlyTrashed()->findOrFail($id);
         $agency->restore();
 
@@ -140,7 +139,4 @@ class AgenciesController extends Controller
 
         return redirect()->route('admin.agencies.index');
     }
-    
-
-
 }
