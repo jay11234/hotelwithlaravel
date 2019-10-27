@@ -25,7 +25,7 @@ class CreatePaymentsTable extends Migration
 
             $table->string('card_holder');
             $table->string('card_number');
-            $table->date('expiration_date');
+            $table->string('expiration_date');
             $table->enum('payment_type',['CreditCard','Cash','Debit','Voucher','EFTPOS']);
             $table->float('amount',8,2);
             $table->date('payment_date');

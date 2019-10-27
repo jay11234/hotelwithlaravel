@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('expiration_date', trans('Expiration Date').'*', ['class' => 'control-label']) !!}
-                {!! Form::text('expiration_date', old('expiration_date'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
+                {!! Form::text('expiration_date', old('expiration_date'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                 <p class="help-block"></p>
                 @if($errors->has('expiration_date'))
                 <p class="help-block">
@@ -70,6 +70,7 @@
                 </p>
                 @endif
             </div>
+            
         </div>
         <div class="row">
             <div class="col-xs-12 form-group">
@@ -108,7 +109,7 @@
                 @endif
             </div>
         </div>
-        
+
 
     </div>
 </div>
@@ -117,15 +118,14 @@
 {!! Form::close() !!}
 @stop
 @section('javascript')
-    @parent
-    <script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script>
-        $('.datetimepicker').datetimepicker({
-            format: "YYYY-MM-DD HH:mm"
-        });
-    </script>
+@parent
+<script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script>
+    $('.datetimepicker').datetimepicker({
+        format: "YYYY-MM-DD HH:mm"
+    });
+</script>
 @stop
