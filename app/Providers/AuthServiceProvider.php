@@ -106,7 +106,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Rooms
         Gate::define('room_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('room_create', function ($user) {
             return in_array($user->role_id, [1, 2]);
