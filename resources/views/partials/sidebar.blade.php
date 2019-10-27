@@ -48,7 +48,7 @@
                 </a>
             </li>
 
- 
+
             <li class="{{ $request->segment(2) == 'users' ? 'active active-sub' : '' }}">
                 <a href="{{ route('admin.agencies.index') }}">
                     <i class="fa fa-building"></i>
@@ -111,6 +111,12 @@
                     <span class="title">Payment History</span>
                 </a>
             </li>
+            <li  >
+                <a href="{{ route('admin.contact.create') }}">
+                    <i class="fa fa-envelope"></i>
+                    <span class="title">Contact Customer</span>
+                </a>
+            </li>
             @elseif(Auth::user()->role_id==2)
             <!-- reception -->
             <li class="treeview">
@@ -132,12 +138,10 @@
                     <span class="title">CheckSheet</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-wrench"></i>
-                    <span class="title">
-                        Maintenance
-                    </span>
+            <li  >
+                <a href="{{ route('admin.contact.create') }}">
+                    <i class="fa fa-envelope"></i>
+                    <span class="title">Contact Customer</span>
                 </a>
             </li>
             @elseif(Auth::user()->role_id==3)
@@ -157,7 +161,7 @@
             </li>
             <li class="{{ $request->segment(2) == 'rooms' ? 'active' : '' }}">
                 <a href="{{ route('admin.rooms.index') }}">
-                    <i class="fa fa-gears"></i>
+                    <i class="fa fa-bed"></i>
                     <span class="title">@lang('quickadmin.rooms.title')</span>
                 </a>
             </li>
@@ -174,7 +178,7 @@
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>
-            
+
         </ul>
     </section>
 </aside>

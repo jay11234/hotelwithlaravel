@@ -74,6 +74,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
 
 
+    Route::get('contact', 'ContactController@create')->name('contact.create');
+    Route::post('contact', 'ContactController@store')->name('contact.store');
+
 
     Route::post('countries_mass_destroy', ['uses' => 'Admin\CountriesController@massDestroy', 'as' => 'countries.mass_destroy']);
     Route::post('countries_restore/{id}', ['uses' => 'Admin\CountriesController@restore', 'as' => 'countries.restore']);
