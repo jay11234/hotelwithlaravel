@@ -29,20 +29,18 @@
         <table class="table table-bordered table-striped {{ count($checksheets) > 0 ? 'datatable' : '' }} @can('checksheet_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
             <thead>
                 <tr>
-                    @can('checksheet_delete')
-                    @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
-                    @endcan
+                    <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                     <!-- // ['start_time', 'end_time', 'total_cycle', 'room_id','housekeeper_id']; -->
                     <th>START TIME</th>
                     <th>END TIME</th>
                     <th>TOTAL CYCLE</th>
                     <th>ROOM</th>
                     <th>HOUSEKEEPER</th>
-                    @if( request('show_deleted') == 1 )
+
                     <th>&nbsp;</th>
-                    @else
+
                     <th>&nbsp;</th>
-                    @endif
+
                 </tr>
             </thead>
 
@@ -50,11 +48,11 @@
                 @if (count($checksheets) > 0)
                 @foreach ($checksheets as $checksheet)
                 <tr data-entry-id="{{ $checksheet->id }}">
-                    @can('checksheet_delete')
-                    @if ( request('show_deleted') != 1 )<td></td>@endif
-                    @endcan
+
+                    <td></td>
 
                     <td field-key='start_time'>{{ $checksheet->start_time }}</td>
+
                     <td field-key='end_time'>{{ $checksheet->end_time }}</td>
                     <td field-key='total_cycle'>{{ $checksheet->total_cycle }}</td>
                     <td field-key='room_id'>{{ $checksheet->room_id }}</td>
