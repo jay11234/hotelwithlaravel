@@ -16,7 +16,7 @@ class Create1516728105RoomsTable extends Migration
             Schema::create('rooms', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('room_number');
-                $table->integer('floor')->nullable();
+                $table->string('floor')->nullable();
                 $table->text('description')->nullable();
                 $table->enum('room_status',['vacantClean','vacantDirty','occupiedClean','occupiedService','onMaintenance']);
                 $table->enum('room_type',['single','twoBedroooms','superior']);
