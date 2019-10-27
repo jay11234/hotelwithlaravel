@@ -2,119 +2,124 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">Agency</h3>
-   
-    <p>
-        <a href="{{ route('admin.agencies.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
-        
-    </p>
-  
+<h3 class="page-title">Payment History</h3>
 
-    @can('country_delete')
-    <p>
-        <ul class="list-inline">
-            <li><a href="{{ route('admin.agencies.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-            <li><a href="{{ route('admin.agencies.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
-        </ul>
-    </p>
-    @endcan
+<p>
+    <a href="{{ route('admin.payments.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
+
+</p>
 
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            @lang('quickadmin.qa_list')
-        </div>
+<p>
+    <ul class="list-inline">
+        <li><a href="{{ route('admin.payments.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
+        <li><a href="{{ route('admin.payments.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
+    </ul>
+</p>
 
-        <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($agencies) > 0 ? 'datatable' : '' }} @can('agency_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
-                <thead>
-                    <tr>
-                        @can('country_delete')
-                            @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
-                        @endcan
 
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Details</th>
-                        @if( request('show_deleted') == 1 )
-                        <th>&nbsp;</th>
-                        @else
-                        <th>&nbsp;</th>
-                        @endif
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    @if (count($agencies) > 0)
-                        @foreach ($agencies as $agency)
-                            <tr data-entry-id="{{ $agency->id }}">
-                                @can('agency_delete')
-                                    @if ( request('show_deleted') != 1 )<td></td>@endif
-                                @endcan
 
-                                <td field-key='name'>{{ $agency->name }}</td>
-                                <td field-key='address'>{{ $agency->address }}</td>
-                                <td field-key='phone'>{{ $agency->phone }}</td>
-                                <td field-key='details'>{{ $agency->details }}</td>
-                                @if( request('show_deleted') == 1 )
-                                <td>
-                                    @can('agency_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'POST',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.agencies.restore', $agency->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                    @can('country_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.agencies.perma_del', $country->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                </td>
-                                @else
-                                <td>
-                                    @can('agency_view')
-                                    <a href="{{ route('admin.agencies.show',[$country->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-                                    @can('agency_edit')
-                                    <a href="{{ route('admin.agencies.edit',[$country->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-                                    @can('agency_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.agencies.destroy', $agency->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
-            </table>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @lang('quickadmin.qa_list')
     </div>
+
+    <div class="panel-body table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
+                   
+                    <th>Customer</th>
+                    <th>Room</th>
+                    <th>Card Holder</th>
+                    <th>Card Number</th>
+                    <th>Expiration Date</th>
+                    <th>Payment Type</th>
+                    <th>Payment Date</th>
+                    <th>Amount</th>
+
+                    <th>&nbsp;</th>
+
+                    <th>&nbsp;</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+   
+                @if (count($payments) > 0)
+                @foreach ($payments as $payment)
+                <tr data-entry-id="{{ $payment->id }}">
+
+                    @if ( request('show_deleted') != 1 )<td></td>@endif
+  <!-- ['customer_id','room_id','card_holder','card_number','expiration_date','payment_type','amount','payment_date']; -->
+
+                    <td field-key='name'>{{ $payment->customer_id }}</td>
+                    <td field-key='address'>{{ $payment->room_id }}</td>
+                    <td field-key='phone'>{{ $payment->card_holder }}</td>
+                    <td field-key='details'>{{ $payment->card_number }}</td>
+                    <td field-key='address'>{{ $payment->expiration_date }}</td>
+                    <td field-key='phone'>{{ $payment->payment_type }}</td>
+                    <td field-key='details'>{{ $payment->payment_date }}</td>
+                    <td field-key='details'>{{ $payment->amount }}</td>
+                    @if( request('show_deleted') == 1 )
+                    <td>
+                        @can('payment_delete')
+                        {!! Form::open(array(
+                        'style' => 'display: inline-block;',
+                        'method' => 'POST',
+                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                        'route' => ['admin.payments.restore', $payment->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                        {!! Form::close() !!}
+                        @endcan
+                        @can('payment_delete')
+                        {!! Form::open(array(
+                        'style' => 'display: inline-block;',
+                        'method' => 'DELETE',
+                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                        'route' => ['admin.payments.perma_del', $payment->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                        {!! Form::close() !!}
+                        @endcan
+                    </td>
+                    @else
+                    <td>
+
+                        <a href="{{ route('admin.payments.show',[$payment->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+
+
+                        <a href="{{ route('admin.payments.edit',[$payment->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+
+
+                        {!! Form::open(array(
+                        'style' => 'display: inline-block;',
+                        'method' => 'DELETE',
+                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                        'route' => ['admin.payments.destroy', $payment->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                        {!! Form::close() !!}
+
+                    </td>
+                    @endif
+                </tr>
+                @endforeach
+                @else
+                <tr>
+                    <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
+                </tr>
+                @endif
+            </tbody>
+        </table>
+    </div>
+</div>
 @stop
 
-@section('javascript') 
-    <script>
-        @can('agency_delete')
-            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.agencies.mass_destroy') }}'; @endif
-        @endcan
-
-    </script>
+@section('javascript')
+<script>
+    @if(request('show_deleted') != 1) window.route_mass_crud_entries_destroy = '{{ route('admin.payments.mass_destroy') }}';
+    @endif
+</script>
 @endsection

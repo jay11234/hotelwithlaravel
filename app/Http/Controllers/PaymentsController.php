@@ -4,39 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Payment;
 use Illuminate\Http\Request;
+use App\Customer;
+use App\Room;
 
 class PaymentsController extends Controller
 {
-   // ['customer_id','room_id','card_holder','card_number','expiration_date','payment_type','amount','payment_date'];
+    // ['customer_id','room_id','card_holder','card_number','expiration_date','payment_type','amount','payment_date'];
     public function index()
     {
-        $payments=Payment::all();
+        $payments = Payment::all();
         return view('admin.payments.index', compact('payments'));
     }
 
     public function create()
     {
-        //show template
-        return view('admin.payments.create');
+        $customers = Customer::get()->pluck('full_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
+        return view('admin.payments.create', compact('customers', 'rooms'));
     }
 
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
-        
- 
+
+
         $payment = Payment::create([
-            'customer_id'=> $request->customer_id,
-            'room_id'=> $request->room_id,
-            'card_holder'=> $request->card_holder,
-            'card_number'=> $request->card_number,
-            'expiration_date'=> $request->expiration_date,
-            'payment_type'=> $request->payment_type,
-            'amount'=> $request->amount,
-            'payment_date'=> $request->payment_date,
-           
+            'customer_id' => $request->customer_id,
+            'room_id' => $request->room_id,
+            'card_holder' => $request->card_holder,
+            'card_number' => $request->card_number,
+            'expiration_date' => $request->expiration_date,
+            'payment_type' => $request->payment_type,
+            'amount' => $request->amount,
+            'payment_date' => $request->payment_date,
+
         ]);
         return redirect('/admin/payments');
-
     }
 
     /**
@@ -47,10 +50,12 @@ class PaymentsController extends Controller
      */
     public function edit($id)
     {
-        
-        $payment = Payment::findOrFail($id);
 
-        return view('admin.paymentss.edit', compact('payment'));
+        $payment = Payment::findOrFail($id);
+        $customers = Customer::get()->pluck('first_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
+        return view('admin.payments.edit', compact('payment', 'customers', 'rooms'));
     }
 
     /**
@@ -60,9 +65,9 @@ class PaymentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, $id)
+    public function update(Request $request, $id)
     {
-         
+
         $payment = Payment::findOrFail($id);
         $payment->update($request->all());
         return redirect()->route('admin.payments.index');
@@ -77,13 +82,13 @@ class PaymentsController extends Controller
      */
     public function destroy($id)
     {
-         
+
         $payment = Payment::findOrFail($id);
-        $payment->delete(); 
+        $payment->delete();
 
         return redirect()->route('admin.payments.index');
     }
-    
+
     /**
      * Delete all selected Category at once.
      *
@@ -102,7 +107,13 @@ class PaymentsController extends Controller
             }
         }
     }
+    public function show($id)
+    {
+       
+        $payment = Payment::findOrFail($id);
 
+        return view('admin.payments.show', compact('payment'));
+    }
 
     /**
      * Restore Category from storage.

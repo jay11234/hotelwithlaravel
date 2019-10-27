@@ -68,6 +68,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
 
     Route::resource('payments', 'PaymentsController');
+    Route::post('payments_mass_destroy', ['uses' => 'PaymentsController@massDestroy', 'as' => 'payments.mass_destroy']);
+    Route::post('payments_restore/{id}', ['uses' => 'PaymentsController@restore', 'as' => 'payments.restore']);
+    Route::delete('payments_perma_del/{id}', ['uses' => 'PaymentsController@perma_del', 'as' => 'payments.perma_del']);
+
+
+
+
     Route::post('countries_mass_destroy', ['uses' => 'Admin\CountriesController@massDestroy', 'as' => 'countries.mass_destroy']);
     Route::post('countries_restore/{id}', ['uses' => 'Admin\CountriesController@restore', 'as' => 'countries.restore']);
     Route::delete('countries_perma_del/{id}', ['uses' => 'Admin\CountriesController@perma_del', 'as' => 'countries.perma_del']);

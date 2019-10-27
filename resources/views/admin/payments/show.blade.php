@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.countries.title')</h3>
+    <h3 class="page-title">Payment History</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,111 +13,46 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.countries.fields.shortcode')</th>
-                            <td field-key='shortcode'>{{ $country->shortcode }}</td>
+                              <!-- ['customer_id','room_id','card_holder','card_number','expiration_date','payment_type','amount','payment_date']; -->
+
+                            <th>Customer</th>
+                            <td field-key='customer_id'>{{ $payment->customer->first_name or '' }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.countries.fields.title')</th>
-                            <td field-key='title'>{{ $country->title }}</td>
+                            <th>Room</th>
+                            <td field-key='room_id'>{{ $payment->room->room_number or '' }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.countries.fields.name')</th>
-                            <td field-key='name'>{{ $country->name }}</td>
+                            <th>Card Holder</th>
+                            <td field-key='card_holder'>{{ $payment->card_holder }}</td>
+                        </tr>
+                        <tr>
+                            <th>Card Number</th>
+                            <td field-key='card_number'>{{ $payment->card_number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Expiration Date</th>
+                            <td field-key='expiration_date'>{!! $payment->expiration_date !!}</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Type</th>
+                            <td field-key='payment_type'>{!! $payment->payment_type !!}</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Date</th>
+                            <td field-key='payment_date'>{!! $payment->payment_date !!}</td>
+                        </tr>
+                        <tr>
+                            <th>Amount</th>
+                            <td field-key='amount'>{!! $payment->amount !!}</td>
                         </tr>
                     </table>
                 </div>
-            </div><!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-    
-<li role="presentation" class="active"><a href="#customers" aria-controls="customers" role="tab" data-toggle="tab">Customers</a></li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-    
-<div role="tabpanel" class="tab-pane active" id="customers">
-<table class="table table-bordered table-striped {{ count($customers) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('quickadmin.customers.fields.first-name')</th>
-                        <th>@lang('quickadmin.customers.fields.last-name')</th>
-                        <th>@lang('quickadmin.customers.fields.address')</th>
-                        <th>@lang('quickadmin.customers.fields.phone')</th>
-                        <th>@lang('quickadmin.customers.fields.email')</th>
-                        <th>@lang('quickadmin.customers.fields.country')</th>
-                        @if( request('show_deleted') == 1 )
-                        <th>&nbsp;</th>
-                        @else
-                        <th>&nbsp;</th>
-                        @endif
-        </tr>
-    </thead>
-
-    <tbody>
-        @if (count($customers) > 0)
-            @foreach ($customers as $customer)
-                <tr data-entry-id="{{ $customer->id }}">
-                    <td field-key='first_name'>{{ $customer->first_name }}</td>
-                                <td field-key='last_name'>{{ $customer->last_name }}</td>
-                                <td field-key='address'>{{ $customer->address }}</td>
-                                <td field-key='phone'>{{ $customer->phone }}</td>
-                                <td field-key='email'>{{ $customer->email }}</td>
-                                <td field-key='country'>{{ $customer->country->shortcode or '' }}</td>
-                                @if( request('show_deleted') == 1 )
-                                <td>
-                                    @can('customer_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'POST',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.customers.restore', $customer->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                    @can('customer_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.customers.perma_del', $customer->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                </td>
-                                @else
-                                <td>
-                                    @can('customer_view')
-                                    <a href="{{ route('admin.customers.show',[$customer->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-                                    @can('customer_edit')
-                                    <a href="{{ route('admin.customers.edit',[$customer->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-                                    @can('customer_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.customers.destroy', $customer->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
-                                @endif
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="11">@lang('quickadmin.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
-</div>
-</div>
+            </div>
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('admin.countries.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('admin.payments.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop
