@@ -25,17 +25,17 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('category_id', trans('quickadmin.rooms.fields.category').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('category_id', $categories, old('category_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('room_status', 'Room Status', ['class' => 'control-label']) !!}
+                    {!! Form::select('room_status', ['vacantClean','vacantDirty','occupiedClean','occupiedService','onMaintenance'], old('room_status'), ['class' => 'form-control select2']) !!}
+
                     <p class="help-block"></p>
-                    @if($errors->has('category_id'))
+                    @if($errors->has('room_status'))
                         <p class="help-block">
-                            {{ $errors->first('category_id') }}
+                            {{ $errors->first('room_status') }}
                         </p>
                     @endif
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('floor', trans('quickadmin.rooms.fields.floor').'*', ['class' => 'control-label']) !!}
