@@ -48,15 +48,7 @@
                 </a>
             </li>
 
-
-            <li class="{{ $request->segment(2) == 'users' ? 'active active-sub' : '' }}">
-                <a href="{{ route('admin.categories.index') }}">
-                    <i class="fa fa-user"></i>
-                    <span class="title">
-                        @lang('quickadmin.categories.title')
-                    </span>
-                </a>
-            </li>
+ 
             <li class="{{ $request->segment(2) == 'users' ? 'active active-sub' : '' }}">
                 <a href="{{ route('admin.agencies.index') }}">
                     <i class="fa fa-building"></i>
