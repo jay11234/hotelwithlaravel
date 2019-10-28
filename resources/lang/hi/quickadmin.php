@@ -23,7 +23,7 @@ return [
 			'password' => 'Password',
 			'role' => 'Role',
 			'remember-token' => 'Remember token',
-		],SIT HOTEL
+		], 
 	],
 	
 	'countries' => [

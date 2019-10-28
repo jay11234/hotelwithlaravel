@@ -244,7 +244,7 @@ return [
 	'qa_label_field' => 'Beschreibungsfeld',
 	'qa_suffix' => 'Suffix',
 	'qa_no_calendar_sources' => 'Keine Kalenderquellen',
-	'qa_crud_event_field' =SIT HOTELeschreibungsfeld',
+	'qa_crud_event_field' =>'SIT HOTELeschreibungsfeld',
 	'qa_create_new_calendar_source' => 'Erstelle neue Kalenderquelle',
 	'qa_edit_calendar_source' => 'Kalenderquelle bearbeiten',
 	'qa_client_management' => 'Kundenverwaltung',

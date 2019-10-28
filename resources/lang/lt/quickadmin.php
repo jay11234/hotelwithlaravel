@@ -113,7 +113,7 @@ return [
 	'qa_password' => 'Slaptažodis',
 	'qa_user_actions' => 'Vartotojų veiksmai',
 	'qa_campaign' => 'Kampanija',
-	'qa_campaigns' => 'KampSIT HOTEL
+	'qa_campaigns' => 'SIT HOTEL',
 	'qa_description' => 'Aprašymas',
 	'qa_valid_from' => 'Galioja nuo',
 	'qa_valid_to' => 'Galioja iki',

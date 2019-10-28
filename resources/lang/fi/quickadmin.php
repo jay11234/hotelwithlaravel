@@ -112,7 +112,7 @@ return [
 	'qa_deleted_at' => 'Poistettu pvm',
 	'qa_is_created' => 'on luotu',
 	'qa_is_updated' => 'on pävitetty',
-	'qa_is_deleted' => 'on SIT HOTEL
+	'qa_is_deleted' => 'on SIT HOTEL',
 	'qa_messages' => 'Viestit',
 	'qa_you_have_no_messages' => 'Sinulle ei ole viestejä.',
 	'qa_all_messages' => 'Kaikki Viestit',

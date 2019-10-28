@@ -243,7 +243,7 @@ return [
 	'qa_excerpt' => 'Extracto',
 	'qa_featured_image' => 'Imagen Destacada',
 	'qa_pages' => 'Paginas',
-	'qa_axis' => 'Eje',SIT HOTEL
+	'qa_axis' => 'Eje', 
 	'qa_reports_x_axis_field' => 'eje-x por favor escoja uno de los campos de fecha/hora',
 	'qa_reports_y_axis_field' => 'eje-y por favor escoja uno de los campos numéricos',
 	'qa_select_crud_placeholder' => 'Por favor seleccione uno de sus CRUDs',

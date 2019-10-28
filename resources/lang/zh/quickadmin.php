@@ -110,7 +110,7 @@ return [
 	'qa_email' => '電子郵件',
 	'qa_password' => '密碼',
 	'qa_permissions' => '權限',
-	'qa_user_actions' => '用SIT HOTEL
+	'qa_user_actions' => 'SIT HOTEL',
 	'qa_action' => '操作',
 	'qa_time' => '時間',
 	'qa_campaign' => '運動',

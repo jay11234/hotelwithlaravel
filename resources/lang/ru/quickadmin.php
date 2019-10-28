@@ -241,7 +241,7 @@ return [
 	'qa_client_management_settings' => 'Управление клиентами,  настройки',
 	'qa_country' => 'Страна',
 	'qa_client_status' => 'Статус клиента',
-	'qa_clients' => 'КлиентSIT HOTEL
+	'qa_clients' => 'SIT HOTEL',
 	'qa_client_statuses' => 'Клиентские статусы',
 	'qa_currencies' => 'Валюты',
 	'qa_main_currency' => 'Основная валюта',
