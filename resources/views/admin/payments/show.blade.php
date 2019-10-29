@@ -19,8 +19,8 @@
                             <td field-key='customer_id'>{{ $payment->customer->first_name or '' }}</td>
                         </tr>
                         <tr>
-                            <th>Room</th>
-                            <td field-key='room_id'>{{ $payment->room->room_number or '' }}</td>
+                            <th>Reference Number</th>
+                            <td field-key='booking_id'>{{ $payment->booking_id}}</td>
                         </tr>
                         <tr>
                             <th>Card Holder</th>
@@ -41,6 +41,10 @@
                         <tr>
                             <th>Payment Date</th>
                             <td field-key='payment_date'>{!! $payment->payment_date !!}</td>
+                        </tr>
+                        <tr>
+                            <th>Charge Back</th>
+                            <td field-key='amount'>{!! $payment->charge_back !!}</td>
                         </tr>
                         <tr>
                             <th>Amount</th>

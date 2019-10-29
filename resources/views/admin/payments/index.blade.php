@@ -32,12 +32,13 @@
                     @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                    
                     <th>Customer</th>
-                    <th>Room</th>
+                    <th>Reference Number</th>
                     <th>Card Holder</th>
                     <th>Card Number</th>
                     <th>Expiration Date</th>
                     <th>Payment Type</th>
                     <th>Payment Date</th>
+                    <th>Charge Back</th>
                     <th>Amount</th>
 
                     <th>&nbsp;</th>
@@ -57,13 +58,14 @@
   <!-- ['customer_id','room_id','card_holder','card_number','expiration_date','payment_type','amount','payment_date']; -->
 
                     <td field-key='name'>{{ $payment->customer_id }}</td>
-                    <td field-key='address'>{{ $payment->room_id }}</td>
+                    <td field-key='address'>{{ $payment->booking_id }}</td>
                     <td field-key='phone'>{{ $payment->card_holder }}</td>
                     <td field-key='details'>{{ $payment->card_number }}</td>
                     <td field-key='address'>{{ $payment->expiration_date }}</td>
                     <td field-key='phone'>{{ $payment->payment_type }}</td>
                     <td field-key='details'>{{ $payment->payment_date }}</td>
-                    <td field-key='details'>{{ $payment->amount }}</td>
+                    <td field-key='charge_back'>{{ $payment->charge_back }}</td>
+                    <td field-key='amount'>{{ $payment->amount }}</td>
                     @if( request('show_deleted') == 1 )
                     <td>
                         @can('payment_delete')

@@ -6,6 +6,7 @@ use App\Payment;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Room;
+use App\Booking;
 
 class PaymentsController extends Controller
 {
@@ -19,9 +20,9 @@ class PaymentsController extends Controller
     public function create()
     {
         $customers = Customer::get()->pluck('full_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $bookings = Booking::get()->pluck('id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.payments.create', compact('customers', 'rooms'));
+        return view('admin.payments.create', compact('customers', 'bookings'));
     }
 
     public function store(Request $request)
@@ -30,13 +31,14 @@ class PaymentsController extends Controller
 
         $payment = Payment::create([
             'customer_id' => $request->customer_id,
-            'room_id' => $request->room_id,
+            'booking_id' => $request->booking_id,
             'card_holder' => $request->card_holder,
             'card_number' => $request->card_number,
             'expiration_date' => $request->expiration_date,
             'payment_type' => $request->payment_type,
             'amount' => $request->amount,
             'payment_date' => $request->payment_date,
+            'charge_back'=>$request->charge_back,
 
         ]);
         return redirect('/admin/payments');
@@ -53,9 +55,9 @@ class PaymentsController extends Controller
 
         $payment = Payment::findOrFail($id);
         $customers = Customer::get()->pluck('first_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $bookings = Booking::get()->pluck('id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.payments.edit', compact('payment', 'customers', 'rooms'));
+        return view('admin.payments.edit', compact('payment', 'customers', 'bookings'));
     }
 
     /**
@@ -109,7 +111,7 @@ class PaymentsController extends Controller
     }
     public function show($id)
     {
-       
+
         $payment = Payment::findOrFail($id);
 
         return view('admin.payments.show', compact('payment'));

@@ -25,12 +25,12 @@
         </div>
         <div class="row">
             <div class="col-xs-12 form-group">
-                {!! Form::label('room_id', trans('Room').'', ['class' => 'control-label']) !!}
-                {!! Form::select('room_id', $rooms, old('room_id'), ['class' => 'form-control select2']) !!}
+                {!! Form::label('booking_id', trans('Reference Number').'', ['class' => 'control-label']) !!}
+                {!! Form::select('booking_id', $bookings, old('booking_id'), ['class' => 'form-control select2']) !!}
                 <p class="help-block"></p>
-                @if($errors->has('room_id'))
+                @if($errors->has('booking_id'))
                 <p class="help-block">
-                    {{ $errors->first('room_id') }}
+                    {{ $errors->first('booking_id') }}
                 </p>
                 @endif
             </div>
@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('expiration_date', trans('Expiration Date').'*', ['class' => 'control-label']) !!}
-                {!! Form::text('expiration_date', old('expiration_date'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
+                {!! Form::text('expiration_date', old('expiration_date'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                 <p class="help-block"></p>
                 @if($errors->has('expiration_date'))
                 <p class="help-block">
@@ -71,6 +71,7 @@
                 @endif
             </div>
         </div>
+        
         <div class="row">
             <div class="col-xs-12 form-group">
                 <!-- CreditCard','Cash','Debit','Voucher','EFTPOS' -->
@@ -92,6 +93,18 @@
                 @if($errors->has('payment_date'))
                 <p class="help-block">
                     {{ $errors->first('payment_date') }}
+                </p>
+                @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 form-group">
+                {!! Form::label('charge_back', trans('Charge Back').'*', ['class' => 'control-label']) !!}
+                {!! Form::text('charge_back', old('charge_back'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                <p class="help-block"></p>
+                @if($errors->has('charge_back'))
+                <p class="help-block">
+                    {{ $errors->first('charge_back') }}
                 </p>
                 @endif
             </div>
