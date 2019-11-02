@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Customer;
+use App\Company;
+use App\Agency;
+use App\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
@@ -18,13 +21,13 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        if (! Gate::allows('customer_access')) {
+        if (!Gate::allows('customer_access')) {
             return abort(401);
         }
 
 
         if (request('show_deleted') == 1) {
-            if (! Gate::allows('customer_delete')) {
+            if (!Gate::allows('customer_delete')) {
                 return abort(401);
             }
             $customers = Customer::onlyTrashed()->get();
@@ -42,13 +45,14 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        if (! Gate::allows('customer_create')) {
+        if (!Gate::allows('customer_create')) {
             return abort(401);
         }
-        
-        $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.customers.create', compact('countries'));
+        $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $companies = \App\Company::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $agencies = \App\Agency::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        return view('admin.customers.create', compact('countries', 'companies', 'agencies'));
     }
 
     /**
@@ -59,7 +63,7 @@ class CustomersController extends Controller
      */
     public function store(StoreCustomersRequest $request)
     {
-        if (! Gate::allows('customer_create')) {
+        if (!Gate::allows('customer_create')) {
             return abort(401);
         }
         $customer = Customer::create($request->all());
@@ -78,15 +82,17 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        if (! Gate::allows('customer_edit')) {
+        if (!Gate::allows('customer_edit')) {
             return abort(401);
         }
-        
+
         $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $companies = \App\Company::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $agencies = \App\Agency::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $customer = Customer::findOrFail($id);
 
-        return view('admin.customers.edit', compact('customer', 'countries'));
+        return view('admin.customers.edit', compact('customer', 'countries', 'agencies', 'companies'));
     }
 
     /**
@@ -98,7 +104,7 @@ class CustomersController extends Controller
      */
     public function update(UpdateCustomersRequest $request, $id)
     {
-        if (! Gate::allows('customer_edit')) {
+        if (!Gate::allows('customer_edit')) {
             return abort(401);
         }
         $customer = Customer::findOrFail($id);
@@ -118,15 +124,18 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        if (! Gate::allows('customer_view')) {
+        if (!Gate::allows('customer_view')) {
             return abort(401);
         }
-        
-        $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$bookings = \App\Booking::where('customer_id', $id)->get();
+
+        $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $bookings = \App\Booking::where('customer_id', $id)->get();
+        $companies = \App\Company::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $agencies = \App\Agency::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $customer = Customer::findOrFail($id);
 
-        return view('admin.customers.show', compact('customer', 'bookings'));
+        return view('admin.customers.show', compact('customer', 'bookings', 'companies', 'agencies'));
     }
 
 
@@ -138,7 +147,7 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        if (! Gate::allows('customer_delete')) {
+        if (!Gate::allows('customer_delete')) {
             return abort(401);
         }
         $customer = Customer::findOrFail($id);
@@ -154,7 +163,7 @@ class CustomersController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        if (! Gate::allows('customer_delete')) {
+        if (!Gate::allows('customer_delete')) {
             return abort(401);
         }
         if ($request->input('ids')) {
@@ -175,7 +184,7 @@ class CustomersController extends Controller
      */
     public function restore($id)
     {
-        if (! Gate::allows('customer_delete')) {
+        if (!Gate::allows('customer_delete')) {
             return abort(401);
         }
         $customer = Customer::onlyTrashed()->findOrFail($id);
@@ -192,7 +201,7 @@ class CustomersController extends Controller
      */
     public function perma_del($id)
     {
-        if (! Gate::allows('customer_delete')) {
+        if (!Gate::allows('customer_delete')) {
             return abort(401);
         }
         $customer = Customer::onlyTrashed()->findOrFail($id);
