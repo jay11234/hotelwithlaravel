@@ -6,38 +6,37 @@ use Illuminate\Http\Request;
 use App\CheckSheet;
 use App\Room;
 use App\Housekeeper;
+
 class ChecksheetsController extends Controller
 {
     // ['start_time', 'end_time', 'total_cycle', 'room_id','housekeeper_id'];
-    
+
     public function index()
     {
-        $checksheets=CheckSheet::all();
+        $checksheets = CheckSheet::all();
         return view('admin.checksheets.index', compact('checksheets'));
     }
 
     public function create()
-    {  
-        
-        
+    {
+
+
         $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-          
-        $housekeepers = Housekeeper::get()->pluck('name','id')->prepend(trans('quickadmin.qa_please_select'),'');
-        return view('admin.checksheets.create', compact('rooms','housekeepers'));
- 
+
+        $housekeepers = Housekeeper::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        return view('admin.checksheets.create', compact('rooms', 'housekeepers'));
     }
 
     public function store(Request $request)
     {
-        
+
         $checksheet = CheckSheet::create($request->all());
         return redirect('/admin/checksheets');
- 
     }
     public function show($id)
     {
-       
-        return view('admin.checksheets.show' );
+        $checksheet = CheckSheet::findOrFail($id);
+        return view('admin.checksheets.show', compact('checksheet'));
     }
     /**
      * Show the form for editing category.
@@ -47,10 +46,12 @@ class ChecksheetsController extends Controller
      */
     public function edit($id)
     {
-        
-        $checksheet = CheckSheet::findOrFail($id);
 
-        return view('admin.checksheets.edit', compact('checksheet'));
+        $checksheet = CheckSheet::findOrFail($id);
+        $rooms = Room::get()->pluck('id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $housekeepers = Housekeeper::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
+        return view('admin.checksheets.edit', compact('checksheet', 'rooms', 'housekeepers'));
     }
 
     /**
@@ -62,7 +63,7 @@ class ChecksheetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-         
+
         $checksheet = CheckSheet::findOrFail($id);
         $checksheet->update($request->all());
         return redirect()->route('admin.checksheets.index');
@@ -77,13 +78,13 @@ class ChecksheetsController extends Controller
      */
     public function destroy($id)
     {
-         
+
         $checksheet = CheckSheet::findOrFail($id);
-        $checksheet->delete(); 
+        $checksheet->delete();
 
         return redirect()->route('admin.checksheets.index');
     }
-    
+
     /**
      * Delete all selected Category at once.
      *
@@ -137,5 +138,4 @@ class ChecksheetsController extends Controller
 
         return redirect()->route('admin.checksheets.index');
     }
-    
 }

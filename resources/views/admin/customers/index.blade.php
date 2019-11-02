@@ -41,6 +41,7 @@
                     <th>@lang('quickadmin.customers.fields.country')</th>
                     <th>Agency</th>
                     <th>Company</th>
+                    <th>Details</th>
                     @if( request('show_deleted') == 1 )
                     <th>&nbsp;</th>
                     @else
@@ -65,6 +66,7 @@
                     <td field-key='country'>{{ $customer->country->title or '' }}</td>
                     <td field-key='agency'>{{ $customer->agency_id or '' }}</td>
                     <td field-key='company'>{{ $customer->company_id  or '' }}</td>
+                    <td field-key='details'>{{ $customer->details or '' }}</td>
                     @if( request('show_deleted') == 1 )
                     <td>
                         @can('customer_delete')

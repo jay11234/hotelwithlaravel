@@ -24,7 +24,7 @@ class Create1516728020CustomersTable extends Migration
             $table->foreign('country_id')->references('id')->on('countries');
             $table->unsignedBigInteger('agency_id')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
-
+            $table->text('details')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

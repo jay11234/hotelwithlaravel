@@ -107,6 +107,10 @@
                 @endif
             </div>
         </div>
+        <div class="form-group">
+            {!! Form::label('details', trans('Details').'', ['class' => 'control-label']) !!}
+            {!! Form::textarea('details', null, ['class' => 'form-control']) !!}
+        </div>
 
     </div>
 </div>

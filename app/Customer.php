@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -14,14 +15,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $phone
  * @property string $email
  * @property string $country
-*/
+ */
 class Customer extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['first_name', 'last_name', 'address', 'phone', 'email', 'country_id','agency_id','company_id'];
-    
-    
+    protected $fillable = ['first_name', 'last_name', 'address', 'phone', 'email', 'country_id', 'agency_id', 'company_id', 'details'];
+
+
 
     /**
      * Set to null if empty
@@ -31,7 +32,7 @@ class Customer extends Model
     {
         $this->attributes['country_id'] = $input ? $input : null;
     }
-    
+
     public function country()
     {
         return $this->belongsTo(Country::class, 'country_id')->withTrashed();
@@ -41,5 +42,4 @@ class Customer extends Model
     {
         return $this->first_name . ' ' . $this->last_name;
     }
-    
 }

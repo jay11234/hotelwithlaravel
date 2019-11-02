@@ -20,10 +20,8 @@ class CreateChecksheetsTable extends Migration
             $table->integer('total_cycle');
           
             $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id')->on('rooms');
-            $table->unsignedBigInteger('housekeeper_id');
-            $table->foreign('housekeeper_id')->references('id')->on('housekeepers');
-
+             $table->unsignedBigInteger('housekeeper_id');
+ 
             $table->timestamps();
         });
     }

@@ -44,6 +44,10 @@
                         <th>Company</th>
                         <td field-key='company'>{{ $company->name or '' }}</td>
                     </tr>
+                    <tr>
+                        <th>Details</th>
+                        <td field-key='details'>{{ $customer->details or '' }}</td>
+                    </tr>
                 </table>
             </div>
         </div><!-- Nav tabs -->
