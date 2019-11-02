@@ -19,15 +19,10 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        if (! Gate::allows('room_access')) {
-            return abort(401);
-        }
 
 
         if (request('show_deleted') == 1) {
-            if (! Gate::allows('room_delete')) {
-                return abort(401);
-            }
+
             $rooms = Room::onlyTrashed()->get();
         } else {
             $rooms = Room::all();
@@ -43,12 +38,10 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        if (! Gate::allows('room_create')) {
-            return abort(401);
-        }
-        
+
+
         $categories = Category::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        return view('admin.rooms.create',compact('categories'));
+        return view('admin.rooms.create', compact('categories'));
     }
 
     /**
@@ -57,11 +50,9 @@ class RoomsController extends Controller
      * @param  \App\Http\Requests\StoreRoomsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRoomsRequest $request)
+    public function store(Request $request)
     {
-        if (! Gate::allows('room_create')) {
-            return abort(401);
-        }
+
         $room = Room::create($request->all());
 
 
@@ -78,13 +69,11 @@ class RoomsController extends Controller
      */
     public function edit($id)
     {
-        if (! Gate::allows('room_edit')) {
-            return abort(401);
-        }
+
         $room = Room::findOrFail($id);
         $categories = Category::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.rooms.edit', compact('room','categories'));
+        return view('admin.rooms.edit', compact('room', 'categories'));
     }
 
     /**
@@ -94,11 +83,9 @@ class RoomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRoomsRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        if (! Gate::allows('room_edit')) {
-            return abort(401);
-        }
+
         $room = Room::findOrFail($id);
         $room->update($request->all());
 
@@ -116,9 +103,7 @@ class RoomsController extends Controller
      */
     public function show($id)
     {
-        if (! Gate::allows('room_view')) {
-            return abort(401);
-        }
+
         $bookings = \App\Booking::where('room_id', $id)->get();
 
         $room = Room::findOrFail($id);
@@ -135,9 +120,7 @@ class RoomsController extends Controller
      */
     public function destroy($id)
     {
-        if (! Gate::allows('room_delete')) {
-            return abort(401);
-        }
+
         $room = Room::findOrFail($id);
         $room->delete();
 
@@ -151,9 +134,7 @@ class RoomsController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        if (! Gate::allows('room_delete')) {
-            return abort(401);
-        }
+
         if ($request->input('ids')) {
             $entries = Room::whereIn('id', $request->input('ids'))->get();
 
@@ -172,9 +153,7 @@ class RoomsController extends Controller
      */
     public function restore($id)
     {
-        if (! Gate::allows('room_delete')) {
-            return abort(401);
-        }
+
         $room = Room::onlyTrashed()->findOrFail($id);
         $room->restore();
 
@@ -189,9 +168,7 @@ class RoomsController extends Controller
      */
     public function perma_del($id)
     {
-        if (! Gate::allows('room_delete')) {
-            return abort(401);
-        }
+
         $room = Room::onlyTrashed()->findOrFail($id);
         $room->forceDelete();
 

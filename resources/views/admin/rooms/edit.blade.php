@@ -23,7 +23,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('room_status', 'Room Status', ['class' => 'control-label']) !!}
                     {!! Form::select('room_status', ['vacantClean','vacantDirty','occupiedClean','occupiedService','onMaintenance'], old('room_status'), ['class' => 'form-control select2']) !!}
@@ -35,7 +35,20 @@
                         </p>
                     @endif
                 </div>
+            </div> -->
+            <div class="row">
+            <div class="col-xs-12 form-group">
+                <!-- CreditCard','Cash','Debit','Voucher','EFTPOS' -->
+                <label name="room_status" for="room_status">Select Room Status*</label>
+                <select class="form-control" id="room_status" name="room_status">
+                    <option value="1">vacantClean</option>
+                    <option value="2">vacantDirty</option>
+                    <option value="3">occupiedClean</option>
+                    <option value="4">occupiedService</option>
+                    <option value="5">onMaintenance</option>
+                </select>
             </div>
+        </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('floor', trans('quickadmin.rooms.fields.floor').'*', ['class' => 'control-label']) !!}

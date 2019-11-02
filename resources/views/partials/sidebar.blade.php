@@ -17,11 +17,11 @@
                     <i class="fa fa-users"></i>
                     <span class="title">@lang('quickadmin.user-management.title')</span>
                     <span class="pull-right-container">
-                       
+
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li >
+                    <li>
                         <a href="{{ route('admin.roles.index') }}">
                             <i class="fa fa-briefcase"></i>
                             <span class="title">
@@ -111,7 +111,7 @@
                     <span class="title">Payment History</span>
                 </a>
             </li>
-            <li  >
+            <li>
                 <a href="{{ route('admin.contact.create') }}">
                     <i class="fa fa-envelope"></i>
                     <span class="title">Contact Customer</span>
@@ -138,7 +138,7 @@
                     <span class="title">CheckSheet</span>
                 </a>
             </li>
-            <li  >
+            <li>
                 <a href="{{ route('admin.contact.create') }}">
                     <i class="fa fa-envelope"></i>
                     <span class="title">Contact Customer</span>
@@ -159,7 +159,7 @@
                     <span class="title">CheckSheet</span>
                 </a>
             </li>
-            <li class="{{ $request->segment(2) == 'rooms' ? 'active' : '' }}">
+            <li>
                 <a href="{{ route('admin.rooms.index') }}">
                     <i class="fa fa-bed"></i>
                     <span class="title">@lang('quickadmin.rooms.title')</span>
