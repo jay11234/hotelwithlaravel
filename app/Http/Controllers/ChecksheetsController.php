@@ -48,7 +48,7 @@ class ChecksheetsController extends Controller
     {
 
         $checksheet = CheckSheet::findOrFail($id);
-        $rooms = Room::get()->pluck('id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $rooms = Room::get()->pluck('room_number','id')->prepend(trans('quickadmin.qa_please_select'), '');
         $housekeepers = Housekeeper::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         return view('admin.checksheets.edit', compact('checksheet', 'rooms', 'housekeepers'));

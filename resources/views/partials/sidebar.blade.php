@@ -132,6 +132,12 @@
                     <span class="title">@lang('quickadmin.bookings.title')</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.rooms.index') }}">
+                    <i class="fa fa-bed"></i>
+                    <span class="title">@lang('quickadmin.rooms.title')</span>
+                </a>
+            </li>
             <li class="{{ $request->segment(2) == 'checksheets' ? 'active' : '' }}">
                 <a href="{{ route('admin.checksheets.index') }}">
                     <i class="fa fa-calendar-o"></i>

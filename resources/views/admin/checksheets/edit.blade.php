@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('total_cycle', trans('Total Cycle').'', ['class' => 'control-label']) !!}
-                {!! Form::select('total_cycle', $rooms, old('total_cycle'), ['class' => 'form-control select2']) !!}
+                {!! Form::text('total_cycle', old('total_cycle'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                 <p class="help-block"></p>
                 @if($errors->has('total_cycle'))
                 <p class="help-block">
@@ -51,7 +51,7 @@
 
         <div class="row">
             <div class="col-xs-12 form-group">
-                {!! Form::label('name', trans('Room').'', ['class' => 'control-label']) !!}
+                {!! Form::label('room_id', trans('Room').'', ['class' => 'control-label']) !!}
                 {!! Form::select('room_id', $rooms, old('room_id'), ['class' => 'form-control select2']) !!}
                 <p class="help-block"></p>
                 @if($errors->has('room_id'))
@@ -63,12 +63,12 @@
         </div>
         <div class="row">
             <div class="col-xs-12 form-group">
-                {!! Form::label('name', trans('House Keeper').'', ['class' => 'control-label']) !!}
-                {!! Form::select('name', $housekeepers, old('housekeeper_id'), ['class' => 'form-control select2']) !!}
+                {!! Form::label('housekeeper_id', trans('House Keeper').'', ['class' => 'control-label']) !!}
+                {!! Form::select('housekeeper_id', $housekeepers, old('housekeeper_id'), ['class' => 'form-control select2']) !!}
                 <p class="help-block"></p>
-                @if($errors->has('name'))
+                @if($errors->has('housekeeper_id'))
                 <p class="help-block">
-                    {{ $errors->first('name') }}
+                    {{ $errors->first('housekeeper_id') }}
                 </p>
                 @endif
             </div>
