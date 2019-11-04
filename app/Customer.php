@@ -38,6 +38,14 @@ class Customer extends Model
         return $this->belongsTo(Country::class, 'country_id')->withTrashed();
     }
 
+    public function agency() {
+      return $this->belongsTo(Agency::class, 'agency_id');
+    }
+
+    public function company() {
+      return $this->belongsTo(Company::class, 'company_id');
+    }
+
     public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;

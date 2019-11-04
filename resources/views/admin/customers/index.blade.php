@@ -64,8 +64,8 @@
                     <td field-key='phone'>{{ $customer->phone }}</td>
                     <td field-key='email'>{{ $customer->email }}</td>
                     <td field-key='country'>{{ $customer->country->title or '' }}</td>
-                    <td field-key='agency'>{{ $customer->agency_id or '' }}</td>
-                    <td field-key='company'>{{ $customer->company_id  or '' }}</td>
+                    <td field-key='agency'>{{ $customer->agency->name or '' }}</td>
+                    <td field-key='company'>{{ $customer->company->name  or '' }}</td>
                     <td field-key='details'>{{ $customer->details or '' }}</td>
                     @if( request('show_deleted') == 1 )
                     <td>
