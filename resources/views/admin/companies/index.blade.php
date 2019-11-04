@@ -57,7 +57,7 @@
                     <td field-key='phone'>{{ $company->phone }}</td>
                     <td field-key='details'>{{ $company->details }}</td>
 
-                    <td>
+                    <!--<td>
 
                         {!! Form::open(array(
                         'style' => 'display: inline-block;',
@@ -75,7 +75,7 @@
                         {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
                         {!! Form::close() !!}
 
-                    </td>
+                    </td>-->
 
                     <td>
 
